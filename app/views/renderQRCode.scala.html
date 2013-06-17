@@ -1,0 +1,16 @@
+@(texto: String)
+
+@main("QR Code") {
+    <div class="row">
+        <div id="qr" class="span9"></div>
+        <script>
+        $('#qr').qrcode({
+        width: 480,
+        height: 480,
+        text: '@texto'});
+        </script>
+        <div class="span6 offset1">
+            @texto
+        </div>
+    </div>
+}

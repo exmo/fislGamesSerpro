@@ -1,0 +1,42 @@
+@(list: List[Seq[Any]])
+
+@import helper._
+
+@header(title: String) = {
+<th>
+    @title
+</th>
+}
+
+
+@implicitFieldConstructor = @{ FieldConstructor(twitterBootstrapInput.f) }
+
+@main("Ranking") {
+    <h1>@list.size Participantes(s)</h1>
+
+    <table>
+        <thead>
+        <tr>
+            @header("E-mail")
+            @header("Nome")
+            @header("Pontuação")
+        </tr>
+        </thead>
+        <tbody>
+
+        @list.map{ case(Seq(email,nome,pontuacao)) =>
+            <tr>
+                <td>@email</td>
+                <td>@nome</td>
+                <td>@pontuacao</td>
+
+            </tr>
+        }
+        </tbody>
+    </table>
+
+
+
+
+
+}

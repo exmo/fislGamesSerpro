@@ -1,0 +1,29 @@
+# Routes
+# This file defines all application routes (Higher priority routes first)
+# ~~~~
+
+# Home page
+GET     /                           controllers.Application.index
+
+GET     /qrcode/form                controllers.Application.formQRCode
+
+GET     /qrcode/render/:texto       controllers.Application.renderQRCode(texto: String)
+POST    /qrcode/render              controllers.Application.renderQRCodePost
+
+POST    /qrcode/gerar               controllers.Application.gerarQRCode
+
+POST    /qrcode/:id/delete          controllers.Application.deleteQRCode(id: Long)
+
+GET     /usuario/criar/:email/:nome   controllers.Application.criarUsuario(email: String, nome: String)
+
+GET     /ranking                    controllers.Application.ranking
+
+GET     /desafio/:id/:email/:resposta   controllers.Application.responderDesafio(id: Long, email: String, resposta: String)
+
+
+
+
+
+
+# Map static resources from the /public folder to the /assets URL path
+GET     /assets/*file               controllers.Assets.at(path="/public", file)

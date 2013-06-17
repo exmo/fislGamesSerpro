@@ -1,0 +1,95 @@
+@(list: List[QRCode],qrcodeForm: Form[QRCode])
+
+@import helper._
+
+@header(title: String) = {
+<th>
+    @title
+</th>
+}
+
+<script>
+    function gerarQRCode() {
+    }
+</script>
+
+@implicitFieldConstructor = @{ FieldConstructor(twitterBootstrapInput.f) }
+
+@main("Formulário de QR Code's") {
+    <h1>@list.size QRCode(s)</h1>
+
+    <table>
+        <thead>
+        <tr>
+            @header("Texto")
+            @header("Tipo")
+            @header("Resposta")
+            @header("Pontuação")
+            @header("QR-Code")
+            @header("&nbsp;")
+        </tr>
+        </thead>
+        <tbody>
+        @list.map{ q =>
+            <tr>
+                <td>[@q.id] @q.texto</td>
+                <td>@q.tipo</td>
+                <td>@q.resposta</td>
+                <td>@q.pontuacao</td>
+                <td>
+                    <form name="qrForm@q.id.get" action="/qrcode/render" method="post">
+                    <input type="hidden" name="texto" value="@q.tipo#@q.id#@q.texto"/>
+                    <div id="qr@q.id" onclick="document.forms['qrForm@q.id'].submit();"></div>
+                    </form>
+                </td>
+                <td>
+                    @form(routes.Application.deleteQRCode(q.id.get)) {
+                    <input type="submit" value="Delete" class="btn danger">
+                    }
+                </td>
+                <script>
+                    $('#qr@q.id').qrcode({
+                    width: 32,
+                    height: 32,
+                    text: '@q.tipo#@q.id#@q.texto'});
+                </script>
+            </tr>
+        }
+        </tbody>
+    </table>
+
+
+
+    <h2>Incluir QR-Code</h2>
+
+    <div id="actions">
+    @form(routes.Application.gerarQRCode) {
+
+        @textarea(qrcodeForm("texto"), '_label -> "Texto")
+        @select(qrcodeForm("tipo"),
+        options("INFO"->"info","URL"->"url","DESAFIO"->"desafio"),
+        '_label -> "Tipo", '_id->"tipo", 'onchange->"verificaTipo()")
+
+        <div id="desafio">
+            @inputText(qrcodeForm("resposta"), '_label -> "Resposta")
+
+            @inputText(qrcodeForm("pontuacao"), '_label -> "Pontuação")
+        </div>
+
+        <script>
+            function verificaTipo(){
+               if($('#tipo').val() == "DESAFIO"){
+                   $('#desafio').show();
+               }else{
+                   $('#desafio').hide();
+               }
+            }
+            $('#desafio').hide();
+        </script>
+
+        <input type="submit" value="Gerar" class="btn primary">
+
+    }
+    </div>
+
+}
