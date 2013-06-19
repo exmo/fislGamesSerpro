@@ -38,20 +38,21 @@
                 <td>@q.pontuacao</td>
                 <td>
                     <form name="qrForm@q.id.get" action="/qrcode/render" method="post">
-                    <input type="hidden" name="texto" value="@q.tipo#@q.id#@q.texto"/>
+                    <input type="hidden" name="texto" value="SERPRO#@q.tipo#@q.id#@q.texto#@q.pontuacao"/>
+                    <input type="hidden" name="size" value="320"/>
                     <div id="qr@q.id" onclick="document.forms['qrForm@q.id'].submit();"></div>
                     </form>
                 </td>
                 <td>
                     @form(routes.Application.deleteQRCode(q.id.get)) {
-                    <input type="submit" value="Delete" class="btn danger">
+                    <input type="submit" value="Delete" class="btn danger" />
                     }
                 </td>
                 <script>
                     $('#qr@q.id').qrcode({
                     width: 32,
                     height: 32,
-                    text: '@q.tipo#@q.id#@q.texto'});
+                    text: 'SERPRO#@q.tipo#@q.id#@q.texto#@q.pontuacao'});
                 </script>
             </tr>
         }

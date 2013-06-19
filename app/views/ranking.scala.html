@@ -26,7 +26,7 @@
 
         @list.map{ case(Seq(email,nome,pontuacao)) =>
             <tr>
-                <td>@email</td>
+                <td><a href="/respostas/@email/@nome?pontuacao=@pontuacao">@email</a></td>
                 <td>@nome</td>
                 <td>@pontuacao</td>
 

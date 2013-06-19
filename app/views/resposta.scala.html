@@ -1,0 +1,44 @@
+@(list: List[Seq[Any]], nome:String, pontuacao: Int)
+
+@import helper._
+
+@header(title: String) = {
+<th>
+    @title
+</th>
+}
+
+
+@main("Respostas por usuário") {
+<h1>@list.size Respostas de @nome</h1>
+
+<table>
+    <thead>
+    <tr>
+        @header("Desafio")
+        @header("Resposta")
+        @header("Pontuação")
+    </tr>
+    </thead>
+    <tbody>
+    @list.map{case(Seq(idQrCode,desafio,email,resposta,pontuacao)) =>
+    <tr>
+        <td>[@idQrCode] @desafio</td>
+        <td>@resposta</td>
+        <td>@pontuacao</td>
+    </tr>
+    }
+    @if(pontuacao != -1) {
+    <tr>
+        <td colspan="2"><strong>Total Pontos</strong></td>
+        <td>@pontuacao</td>
+    </tr>
+    }
+    </tbody>
+</table>
+
+
+
+
+
+}

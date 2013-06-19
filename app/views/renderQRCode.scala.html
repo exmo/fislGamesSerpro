@@ -1,16 +1,24 @@
-@(texto: String)
+@(texto: String, size: Int)
 
 @main("QR Code") {
     <div class="row">
-        <div id="qr" class="span9"></div>
+        <form name="qrForm" action="/qrcode/render" method="post">
+            <input type="hidden" name="texto" value="@texto"/>
+            <input type="text" name="size" value="@size"/>
+            <input type="submit" id="qrButton" value="Mudar Tamanho"/>
+        </form>
+    </div>
+    <div class="row">
+        @texto
+    </div>
+    <hr/>
+    <div class="row">
+        <div id="qr"></div>
         <script>
         $('#qr').qrcode({
-        width: 480,
-        height: 480,
+        width: @size,
+        height: @size,
         text: '@texto'});
         </script>
-        <div class="span6 offset1">
-            @texto
-        </div>
     </div>
 }

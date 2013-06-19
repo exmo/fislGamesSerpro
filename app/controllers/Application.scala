@@ -5,12 +5,15 @@ import play.api.mvc._
 import models._
 import play.api.data.Form
 import play.api.data.Forms._
+import play.api.libs.Jsonp
 
 import views._
 
 import play.api.data._
 
 import anorm._
+
+import play.api.libs.json.Json._
 
 object Application extends Controller {
 
@@ -33,13 +36,14 @@ object Application extends Controller {
     Ok(views.html.formQRCode(QRCode.all(), qrcodeForm))
   }
 
-  def renderQRCode(texto: String) = Action {
-    Ok(views.html.renderQRCode(texto))
+  def renderQRCode(texto: String, size: Int) = Action {
+    Ok(views.html.renderQRCode(texto, size))
   }
 
-  val renderQRCodePost = Action { implicit request =>
+  def renderQRCodePost() = Action { implicit request =>
     val texto = request.body.asFormUrlEncoded.get("texto")(0)
-    Ok(views.html.renderQRCode(texto))
+    val size = request.body.asFormUrlEncoded.get("size")(0).toInt
+    Ok(views.html.renderQRCode(texto, size))
   }
 
   def gerarQRCode = Action { implicit request =>
@@ -57,9 +61,24 @@ object Application extends Controller {
     Redirect(routes.Application.formQRCode())
   }
 
-  def criarUsuario(email: String, nome: String) = Action{
-    Usuario.create(email,nome);
-    Ok(s"$nome")
+  def criarUsuario(email: String, nome: String, callback: String) = Action{
+    var json = toJson(
+      Map("codRet" -> "OK", "msgRet" -> s"Usuario $nome cadastrado com sucesso!")
+    )
+    Usuario.findByEmail(email).map { usuario =>
+      json = toJson(
+        Map("codRet" -> "ERRO", "msgRet" -> s"Usuario $email ja estava cadastrado")
+      )
+    }.getOrElse {
+      Usuario.create(email,nome)
+    }
+    Ok(Jsonp(callback, json))
+    /*
+    Ok(toJson(
+        Map("codRet" -> "OK", "msgRet" -> s"Usuario $nome cadastrado com sucesso!")
+      )
+    ).as("application/json")
+    */
   }
 
   def ranking = Action {
@@ -67,19 +86,57 @@ object Application extends Controller {
     Ok(views.html.ranking(Resposta.obtemPontuacaoTodosUsuarios()))
   }
 
-  def responderDesafio(id: Long, email: String, resposta: String) = Action{
-    QRCode.findById(id).map { desafio =>
-      var pontos = 0
-      var mensagem = "ERROU!!"
-      if (desafio.resposta == resposta) {
-        pontos = desafio.pontuacao
-        mensagem = "ACERTOU!!"
+  def respostas(email: String, nome: String, pontuacao: Int) = Action {
+    Ok(views.html.resposta(Resposta.obtemRespostasUsuario(email), nome, pontuacao))
+  }
+
+  def responderDesafio(id: Long, email: String, resposta: String, callback: String) = Action{
+    var json = toJson(
+      Map("status" -> "OK", "codRet" -> "ERRO-RE", "msgRet" -> "Resposta errada!")
+    )
+    Resposta.findByIdQrCodeEmail(id, email).map { resp =>
+      json = toJson(
+        Map("status" -> "OK",  "codRet" -> "ERRO-DJR", "msgRet" -> "Este desafio já foi respondido por você!")
+      )
+    }.getOrElse {
+      QRCode.findById(id).map { desafio =>
+        var pontos = 0
+        if (desafio.resposta == resposta) {
+          pontos = desafio.pontuacao
+          json = toJson(
+            Map("status" -> "OK", "codRet" -> "OK", "msgRet" -> "Resposta correta!")
+          )
+        }
+        Resposta.create(id,email,resposta, pontos);
+      }.getOrElse {
+        json = toJson(
+          Map("status" -> "OK", "codRet" -> "ERRO-DNE", "msgRet" -> "DESAFIO NAO ENCONTRADO")
+        )
       }
-      Resposta.create(id,email,resposta, pontos);
-      Ok(s"$mensagem")
+    }
+
+    Ok(Jsonp(callback, json))
+  }
+
+  def myService(callback: String) = Action {
+    val json = toJson(
+      Map("codRet" -> "OK", "msgRet" -> "FUNFOU")
+    )
+    Ok(Jsonp(callback, json))
+    //BadRequest(Jsonp(callback, json))
+  }
+
+
+  /* JSON SAMPLE
+  def getTask(id: Long) = Action {
+    Task.findById(id).map { task =>
+      Ok(toJson(
+        Map("status" -> "OK", "task" -> (s"Task ${task.id} -> " + task.label))
+      )).as("application/json")
     }.getOrElse {
       Ok("NOT FOUND")
     }
   }
+  */
 
 }

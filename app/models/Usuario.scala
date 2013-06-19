@@ -23,6 +23,10 @@ object Usuario {
     SQL("select * from usuario").as(usuario *)
   }
 
+  def findByEmail(email: String): Option[Usuario] = DB.withConnection { implicit c =>
+    SQL("select * from usuario where email={email}").on('email -> email).as(Usuario.usuario.singleOpt)
+  }
+
   def create(email: String, nome: String) {
     DB.withConnection { implicit c =>
       SQL("insert into usuario (email, nome) values ({email},{nome})").on(
