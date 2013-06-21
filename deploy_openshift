@@ -32,7 +32,7 @@ git pull
 # Adiciona o projeto do Github
 git remote add github -m master git@github.com:exmo/fislGamesSerpro.git
 echo "[info] sincronizando com o github"
-git pull -s recursive -X theirs github master
+git pull github master
 
 
 
