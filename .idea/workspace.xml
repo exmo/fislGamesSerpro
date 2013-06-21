@@ -2,15 +2,25 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="1c4402a2-2281-4fa9-981a-f9d6be7c082e" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/controllers/Application.scala" afterPath="$PROJECT_DIR$/app/controllers/Application.scala" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/formQRCode.scala.html" afterPath="$PROJECT_DIR$/app/views/formQRCode.scala.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/stylesheets/main.css" afterPath="$PROJECT_DIR$/public/stylesheets/main.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/main.scala.html" afterPath="$PROJECT_DIR$/app/views/main.scala.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/ranking.scala.html" afterPath="$PROJECT_DIR$/app/views/ranking.scala.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/renderQRCode.scala.html" afterPath="$PROJECT_DIR$/app/views/renderQRCode.scala.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/resposta.scala.html" afterPath="$PROJECT_DIR$/app/views/resposta.scala.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/conf/routes" afterPath="$PROJECT_DIR$/conf/routes" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/twitterBootstrapInput.scala.html" afterPath="$PROJECT_DIR$/app/views/twitterBootstrapInput.scala.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.openshift/cron/README.cron" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.openshift/action_hooks/README.md" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.openshift/cron/weekly/README" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.openshift/cron/weekly/chrono.dat" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.openshift/cron/weekly/chronograph" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/deploy/fislgames" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.openshift/cron/weekly/jobs.allow" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.openshift/cron/weekly/jobs.deny" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.openshift/action_hooks/start" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.openshift/action_hooks/stop" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/diy/testrubyserver.rb" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.openshift/cron/daily/.gitignore" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.openshift/cron/hourly/.gitignore" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.openshift/cron/minutely/.gitignore" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/deploy_openshift" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/diy/index.html" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/misc/.gitkeep" afterPath="$PROJECT_DIR$/.openshift/cron/monthly/.gitignore" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/misc/.gitkeep" afterPath="$PROJECT_DIR$/misc/.gitkeep" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/README.md" afterPath="$PROJECT_DIR$/README.md" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="fislGamesSerpro.iws" />
@@ -426,7 +436,7 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-1" y="24" width="1602" height="857" extended-state="6" />
-    <editor active="true" />
+    <editor active="false" />
     <layout>
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="JetGradle" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
