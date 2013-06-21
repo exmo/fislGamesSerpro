@@ -4,6 +4,7 @@
 # sbt specific
 dist/*
 target/
+deploy/
 lib_managed/
 src_managed/
 project/boot/
