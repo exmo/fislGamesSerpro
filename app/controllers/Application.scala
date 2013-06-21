@@ -15,7 +15,43 @@ import anorm._
 
 import play.api.libs.json.Json._
 
-object Application extends Controller {
+import play.api.mvc.Security
+
+object Application extends Controller with Secured {
+
+  // -- Authentication
+
+  val loginForm = Form(
+    tuple(
+      "email" -> text,
+      "password" -> text
+    ) verifying ("Email ou senha inválidos", result => result match {
+      case (email, password) => check(email, password)
+    })
+  )
+
+  def check(username: String, password: String) = {
+    (username == "admin" && password == "1234")
+  }
+
+  def login = Action { implicit request =>
+    Ok(html.login(loginForm))
+  }
+
+  def authenticate = Action { implicit request =>
+    loginForm.bindFromRequest.fold(
+      formWithErrors => BadRequest(html.login(formWithErrors)),
+      user => Redirect(routes.Application.formQRCode).withSession(Security.username -> user._1)
+    )
+  }
+
+  def logout = Action {
+    Redirect(routes.Application.login).withNewSession.flashing(
+      "success" -> "Logout efetuado com sucesso."
+    )
+  }
+
+  // -- Web
 
   val qrcodeForm = Form(
     mapping(
@@ -27,26 +63,21 @@ object Application extends Controller {
     )(QRCode.apply)(QRCode.unapply)
   )
 
-
-  def index = Action {
-    Ok(views.html.index("Your new application is ready."))
-  }
-
-  def formQRCode = Action {
+  def formQRCode = withAuth { user => implicit request =>
     Ok(views.html.formQRCode(QRCode.all(), qrcodeForm))
   }
 
-  def renderQRCode(texto: String, size: Int) = Action {
+  def renderQRCode(texto: String, size: Int) = withAuth { user => implicit request =>
     Ok(views.html.renderQRCode(texto, size))
   }
 
-  def renderQRCodePost() = Action { implicit request =>
+  def renderQRCodePost() = withAuth { user => implicit request =>
     val texto = request.body.asFormUrlEncoded.get("texto")(0)
     val size = request.body.asFormUrlEncoded.get("size")(0).toInt
     Ok(views.html.renderQRCode(texto, size))
   }
 
-  def gerarQRCode = Action { implicit request =>
+  def gerarQRCode = withAuth { user => implicit request =>
     qrcodeForm.bindFromRequest.fold(
         errors => BadRequest(views.html.formQRCode(QRCode.all(),errors)),
         qrcode => {
@@ -56,12 +87,22 @@ object Application extends Controller {
       )
     }
 
-  def deleteQRCode(id: Long) = Action {
+  def deleteQRCode(id: Long) = withAuth { user => implicit request =>
     QRCode.delete(id)
     Redirect(routes.Application.formQRCode())
   }
 
-  def criarUsuario(email: String, nome: String, callback: String) = Action{
+  def ranking = withAuth { user => implicit request =>
+    Ok(views.html.ranking(Resposta.obtemPontuacaoTodosUsuarios()))
+  }
+
+  def respostas(email: String, nome: String, pontuacao: Int) = withAuth { user => implicit request =>
+    Ok(views.html.resposta(Resposta.obtemRespostasUsuario(email), nome, pontuacao))
+  }
+
+  // -- REST/JSONP
+
+  def criarUsuario(email: String, nome: String, callback: String) = Action {
     var json = toJson(
       Map("codRet" -> "OK", "msgRet" -> s"Usuario $nome cadastrado com sucesso!")
     )
@@ -73,24 +114,10 @@ object Application extends Controller {
       Usuario.create(email,nome)
     }
     Ok(Jsonp(callback, json))
-    /*
-    Ok(toJson(
-        Map("codRet" -> "OK", "msgRet" -> s"Usuario $nome cadastrado com sucesso!")
-      )
-    ).as("application/json")
-    */
   }
 
-  def ranking = Action {
-    //Ok("ok")//views.html.ranking(Usuario.all()))
-    Ok(views.html.ranking(Resposta.obtemPontuacaoTodosUsuarios()))
-  }
 
-  def respostas(email: String, nome: String, pontuacao: Int) = Action {
-    Ok(views.html.resposta(Resposta.obtemRespostasUsuario(email), nome, pontuacao))
-  }
-
-  def responderDesafio(id: Long, email: String, resposta: String, callback: String) = Action{
+  def responderDesafio(id: Long, email: String, resposta: String, callback: String) = Action {
     var json = toJson(
       Map("status" -> "OK", "codRet" -> "ERRO-RE", "msgRet" -> "Resposta errada!")
     )
@@ -114,29 +141,31 @@ object Application extends Controller {
         )
       }
     }
-
     Ok(Jsonp(callback, json))
   }
+}
 
-  def myService(callback: String) = Action {
-    val json = toJson(
-      Map("codRet" -> "OK", "msgRet" -> "FUNFOU")
-    )
-    Ok(Jsonp(callback, json))
-    //BadRequest(Jsonp(callback, json))
-  }
+trait Secured {
 
+  def username(request: RequestHeader) = request.session.get(Security.username)
 
-  /* JSON SAMPLE
-  def getTask(id: Long) = Action {
-    Task.findById(id).map { task =>
-      Ok(toJson(
-        Map("status" -> "OK", "task" -> (s"Task ${task.id} -> " + task.label))
-      )).as("application/json")
-    }.getOrElse {
-      Ok("NOT FOUND")
+  def onUnauthorized(request: RequestHeader) = Results.Redirect(routes.Application.login)
+
+  def withAuth(f: => String => Request[AnyContent] => Result) = {
+    Security.Authenticated(username, onUnauthorized) { user =>
+      Action(request => f(user)(request))
     }
   }
-  */
 
+  /**
+   * This method shows how you could wrap the withAuth method to also fetch your user
+   * You will need to implement UserDAO.findOneByUsername
+   */
+  /*
+  def withUser(f: User => Request[AnyContent] => Result) = withAuth { username => implicit request =>
+    UserDAO.findOneByUsername(username).map { user =>
+      f(user)(request)
+    }.getOrElse(onUnauthorized(request))
+  } */
 }
+

@@ -12,9 +12,10 @@
 @main("Respostas por usuário") {
 <h1>@list.size Respostas de @nome</h1>
 
-<table>
+<table class="table table-striped table-bordered">
     <thead>
     <tr>
+        @header("#")
         @header("Desafio")
         @header("Resposta")
         @header("Pontuação")
@@ -23,14 +24,15 @@
     <tbody>
     @list.map{case(Seq(idQrCode,desafio,email,resposta,pontuacao)) =>
     <tr>
-        <td>[@idQrCode] @desafio</td>
+        <td>@idQrCode</td>
+        <td>@desafio</td>
         <td>@resposta</td>
         <td>@pontuacao</td>
     </tr>
     }
     @if(pontuacao != -1) {
     <tr>
-        <td colspan="2"><strong>Total Pontos</strong></td>
+        <td colspan="3"><strong>Total Pontos</strong></td>
         <td>@pontuacao</td>
     </tr>
     }

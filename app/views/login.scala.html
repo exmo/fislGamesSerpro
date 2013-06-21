@@ -1,0 +1,34 @@
+@(loginForm: Form[(String,String)])(implicit flash: Flash)
+
+@import helper._
+
+@import helper.twitterBootstrap._
+
+@main("Login") {
+<h1>Login</h1>
+
+<div id="actions">
+
+    @helper.form(routes.Application.authenticate) {
+        @loginForm.globalError.map { error =>
+        <div class="alert alert-error">
+            @error.message
+        </div>
+        }
+
+        @flash.get("success").map { message =>
+        <div class="alert alert-success">
+            @message
+        </div>
+        }
+
+        @helper.inputText(loginForm("email"), '_label -> "Email")
+        @helper.inputPassword(loginForm("password"), '_label -> "Senha")
+
+        <div class="form-actions">
+            <input type="submit" value="Login" class="btn btn-primary btn-large">
+        </div>
+    }
+
+</div>
+}
