@@ -1,8 +1,8 @@
 # --- !Ups
 
 CREATE TABLE usuario (
-    email varchar(255) NOT NULL PRIMARY KEY,
-    nome varchar(255)
+    email char(255) NOT NULL PRIMARY KEY,
+    nome char(255)
 );
 
 # --- !Downs

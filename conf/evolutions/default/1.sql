@@ -3,10 +3,11 @@
 
 CREATE TABLE qrcode (
     id integer NOT NULL AUTO_INCREMENT,
-    texto varchar(1024),
-    tipo varchar(255),
-    resposta varchar(255),
-    pontuacao INT
+    texto TEXT,
+    tipo char(255),
+    resposta char(255),
+    pontuacao INT,
+    PRIMARY KEY (id)
 );
 
 # --- !Downs
