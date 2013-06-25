@@ -19,20 +19,22 @@
         @header("Desafio")
         @header("Resposta")
         @header("Pontuação")
+        @header("Data/Hora")
     </tr>
     </thead>
     <tbody>
-    @list.map{case(Seq(idQrCode,desafio,email,resposta,pontuacao)) =>
+    @list.map{case(Seq(idQrCode,desafio,email,resposta,pontuacao,ultima_atualizacao)) =>
     <tr>
         <td>@idQrCode</td>
         <td>@desafio</td>
         <td>@resposta</td>
         <td>@pontuacao</td>
+        <td>@ultima_atualizacao</td>
     </tr>
     }
     @if(pontuacao != -1) {
     <tr>
-        <td colspan="3"><strong>Total Pontos</strong></td>
+        <td colspan="4"><strong>Total Pontos</strong></td>
         <td>@pontuacao</td>
     </tr>
     }

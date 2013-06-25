@@ -5,6 +5,11 @@ import anorm.SqlParser._
 import play.api.db.DB
 import play.api.Play.current
 
+import org.joda.time._
+import org.joda.time.format._
+
+import java.math.BigInteger
+
 case class Resposta (
        var idQrCode:Pk[Long],
        var email:Pk[String],
@@ -36,10 +41,18 @@ object Resposta {
       get[String]("texto")~
       get[Pk[String]]("email")~
       get[String]("resposta")~
-      get[Long]("pontuacao") map {
-      case idQrCode~texto~email~resposta~pontuacao => Seq(idQrCode,texto,email,resposta,pontuacao)
+      get[Long]("pontuacao")~
+      get[String]("ultima_atualizacao") map {
+      case idQrCode~texto~email~resposta~pontuacao~ultima_atualizacao => Seq(idQrCode,texto,email,resposta,pontuacao,formataDataHora(ultima_atualizacao))
     }
   }
+
+  def formataDataHora(dataHora: String): String = {
+    var dt = new DateTime(dataHora)
+    var fmt = DateTimeFormat.forPattern("dd/MM/yyyy HH:mm:ss")
+    return fmt.print(dt)
+  }
+
 
   def all(): List[Resposta] = DB.withConnection { implicit c =>
     SQL("select * from resposta").as(resp *)
@@ -51,7 +64,7 @@ object Resposta {
 
   def create(idQrCode:Long,email: String, resposta: String, pontuacao: Long) {
     DB.withConnection { implicit c =>
-      SQL("insert into resposta (idQrCode,email,resposta,pontuacao) values ({idQrCode},{email},{resposta},{pontuacao})").on(
+      SQL("insert into resposta (idQrCode,email,resposta,pontuacao,ultima_atualizacao) values ({idQrCode},{email},{resposta},{pontuacao},'"+new DateTime()+"')").on(
         'idQrCode -> idQrCode,
         'email -> email,
         'resposta -> resposta,
@@ -69,7 +82,7 @@ object Resposta {
   def obtemRespostasUsuario(email: String): List[Seq[Any]] = DB.withConnection { implicit c =>
   //def obtemRespostasUsuario(email: String): List[Resposta] = DB.withConnection { implicit c =>
     //SQL("select * from resposta where email={email}").on('email -> email).as(resp *)
-    SQL("select r.idQrCode, q.texto, r.email, r.resposta, r.pontuacao from resposta  r " +
+    SQL("select r.idQrCode, q.texto, r.email, r.resposta, r.pontuacao, r.ultima_atualizacao from resposta  r " +
       "inner join qrcode q on q.id = r.idQrCode where r.email={email}").on('email -> email).as(resps *)
   }
 }

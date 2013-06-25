@@ -4,6 +4,10 @@ import anorm._
 import anorm.SqlParser._
 import play.api.db.DB
 import play.api.Play.current
+//import java.sql._
+//import org.joda.time._
+//import java.math.BigInteger
+//import org.joda.time.DateTime
 
 case class QRCode (
 
