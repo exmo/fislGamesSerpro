@@ -1,8 +1,8 @@
 # --- !Ups
 
-CREATE SEQUENCE qrcode_id_seq;
+
 CREATE TABLE qrcode (
-    id integer NOT NULL DEFAULT nextval('qrcode_id_seq'),
+    id integer NOT NULL AUTO_INCREMENT,
     texto varchar(1024),
     tipo varchar(255),
     resposta varchar(255),
@@ -12,4 +12,3 @@ CREATE TABLE qrcode (
 # --- !Downs
 
 DROP TABLE qrcode;
-DROP SEQUENCE qrcode_id_seq;
