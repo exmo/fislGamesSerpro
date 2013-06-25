@@ -20,7 +20,7 @@ cd deploy
 # Testa se já tem o diretorio do projeto, se não faz o clone
 if [ ! -d fislgames ]; then
   echo "[info] clonando o repositorio na openshift"
-  git clone ssh://51c452225973cad476000015@fislgames-exmo.rhcloud.com/~/git/fislgames.git/
+  git clone ssh://51c484cf5973cae52a0001cb@fislgames-exmo.rhcloud.com/~/git/fislgames.git/
 fi
 
 # Entra no diretorio do projeto
