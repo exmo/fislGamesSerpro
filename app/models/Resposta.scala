@@ -8,7 +8,7 @@ import play.api.Play.current
 import org.joda.time._
 import org.joda.time.format._
 
-import java.math.BigInteger
+import java.math.BigDecimal
 
 case class Resposta (
        var idQrCode:Pk[Long],
@@ -31,7 +31,7 @@ object Resposta {
   val users = {
     get[String]("email")~
       get[String]("nome")~
-      get[Long]("pontuacao") map {
+      get[BigDecimal]("pontuacao") map {
       case email~nome~pontuacao => Seq(email,nome,pontuacao)
     }
   }
