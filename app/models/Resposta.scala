@@ -32,7 +32,7 @@ object Resposta {
     get[String]("email")~
       get[String]("nome")~
       get[String]("telefone")~
-      get[Long]("pontuacao") map {
+      get[BigDecimal]("pontuacao") map {
       case email~nome~telefone~pontuacao => Seq(email,nome,telefone,pontuacao)
     }
   }
