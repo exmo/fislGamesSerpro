@@ -7,15 +7,17 @@ import play.api.Play.current
 
 case class Usuario (
     var email:Pk[String],
-    var nome:String
+    var nome:String,
+    var telefone:String
 )
 
 object Usuario {
 
   val usuario = {
       get[Pk[String]]("email")~
-      get[String]("nome") map {
-      case email~nome => Usuario(email,nome)
+      get[String]("nome") ~
+      get[String]("telefone") map {
+      case email~nome~telefone => Usuario(email,nome,telefone)
     }
   }
 
@@ -27,11 +29,12 @@ object Usuario {
     SQL("select * from usuario where email={email}").on('email -> email).as(Usuario.usuario.singleOpt)
   }
 
-  def create(email: String, nome: String) {
+  def create(email: String, nome: String, telefone: String) {
     DB.withConnection { implicit c =>
-      SQL("insert into usuario (email, nome) values ({email},{nome})").on(
+      SQL("insert into usuario (email, nome, telefone) values ({email},{nome},{telefone})").on(
         'email -> email,
-        'nome -> nome
+        'nome -> nome,
+        'telefone -> telefone
       ).executeUpdate()
     }
   }

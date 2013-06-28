@@ -60,6 +60,10 @@ object Application extends Controller with Secured {
       "texto" -> nonEmptyText,
       "tipo" -> nonEmptyText,
       "resposta" -> default(text,"N/A"),
+      "alternativa1" -> default(text,"N/A"),
+      "alternativa2" -> default(text,"N/A"),
+      "alternativa3" -> default(text,"N/A"),
+      "textoQrCode" -> default(text,"N/A"),
       "pontuacao" -> default(number,0)
     )(QRCode.apply)(QRCode.unapply)
   )
@@ -82,7 +86,8 @@ object Application extends Controller with Secured {
     qrcodeForm.bindFromRequest.fold(
         errors => BadRequest(views.html.formQRCode(QRCode.all(),errors)),
         qrcode => {
-          QRCode.create(qrcode.texto, qrcode.tipo, qrcode.resposta, qrcode.pontuacao)
+
+          QRCode.create(qrcode.texto, qrcode.tipo, qrcode.resposta,qrcode.alternativa1,qrcode.alternativa2,qrcode.alternativa3,qrcode.pontuacao)
           Redirect(routes.Application.formQRCode())
         }
       )
@@ -103,7 +108,7 @@ object Application extends Controller with Secured {
 
   // -- REST/JSONP
 
-  def criarUsuario(email: String, nome: String, callback: String) = Action {
+  def criarUsuario(email: String, nome: String, telefone: String, callback: String) = Action {
     var json = toJson(
       Map("codRet" -> "OK", "msgRet" -> s"Usuario $nome cadastrado com sucesso!")
     )
@@ -112,7 +117,7 @@ object Application extends Controller with Secured {
         Map("codRet" -> "ERRO", "msgRet" -> s"Usuario $email ja estava cadastrado")
       )
     }.getOrElse {
-      Usuario.create(email,nome)
+      Usuario.create(email,nome,telefone)
     }
     Ok(Jsonp(callback, json))
   }

@@ -13,7 +13,7 @@ GET     /ranking                    controllers.Application.ranking
 GET     /respostas/:email/:nome     controllers.Application.respostas(email: String, nome: String, pontuacao: Int ?= -1)
 
 # ROTAS DISPONIVEIS PARA ACESSO REST VIA APP PHONEGAP, RETORNANDO JSONP
-GET     /usuario/criar/:email/:nome     controllers.Application.criarUsuario(email: String, nome: String, callback: String)
+GET     /usuario/criar/:email/:nome/:telefone     controllers.Application.criarUsuario(email: String, nome: String, telefone: String, callback: String)
 GET     /desafio/:id/:email/:resposta   controllers.Application.responderDesafio(id: Long, email: String, resposta: String, callback: String)
 
 # Authentication

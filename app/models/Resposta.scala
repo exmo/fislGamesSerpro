@@ -31,8 +31,9 @@ object Resposta {
   val users = {
     get[String]("email")~
       get[String]("nome")~
-      get[BigDecimal]("pontuacao") map {
-      case email~nome~pontuacao => Seq(email,nome,pontuacao)
+      get[String]("telefone")~
+      get[Long]("pontuacao") map {
+      case email~nome~telefone~pontuacao => Seq(email,nome,telefone,pontuacao)
     }
   }
 
@@ -74,8 +75,8 @@ object Resposta {
   }
 
   def obtemPontuacaoTodosUsuarios(): List[Seq[Any]] = DB.withConnection { implicit c =>
-    SQL("select u.email, u.nome, coalesce(sum(r.pontuacao),0) as pontuacao from usuario u left " +
-        "join resposta r on u.email = r.email group by u.email, u.nome order by pontuacao desc").as(users *)
+    SQL("select u.email, u.nome, u.telefone, coalesce(sum(r.pontuacao),0) as pontuacao from usuario u left " +
+        "join resposta r on u.email = r.email group by u.email, u.nome, u.telefone order by pontuacao desc").as(users *)
 
   }
 

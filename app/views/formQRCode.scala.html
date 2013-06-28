@@ -25,6 +25,9 @@
             @header("Texto")
             @header("Tipo")
             @header("Resposta")
+            @header("Alternativa 1")
+            @header("Alternativa 2")
+            @header("Alternativa 3")
             @header("Pontuação")
             @header("QR-Code")
             @header("Ações")
@@ -37,10 +40,13 @@
                 <td>@q.texto</td>
                 <td>@q.tipo</td>
                 <td>@q.resposta</td>
+                <td>@q.alternativa1</td>
+                <td>@q.alternativa2</td>
+                <td>@q.alternativa3</td>
                 <td>@q.pontuacao</td>
                 <td>
                     <form name="qrForm@q.id.get" action="/qrcode/render" method="post">
-                    <input type="hidden" name="texto" value="SERPRO#@q.tipo#@q.id#@q.texto#@q.pontuacao"/>
+                    <input type="hidden" id="texto@q.id.get" name="texto" value="SERPRO#@q.tipo#@q.id#@q.textoQrCode"/>
                     <input type="hidden" name="size" value="320"/>
                     <div id="qr@q.id" onclick="document.forms['qrForm@q.id'].submit();"></div>
                     </form>
@@ -52,9 +58,10 @@
                 </td>
                 <script>
                     $('#qr@q.id').qrcode({
-                    width: 32,
-                    height: 32,
-                    text: 'SERPRO#@q.tipo#@q.id#@q.texto#@q.pontuacao'});
+                        width: 64,
+                        height: 64,
+                        text: 'SERPRO#@q.tipo#@q.id#@q.textoQrCode'
+                    });
                 </script>
             </tr>
         }
@@ -66,11 +73,19 @@
             <legend><strong>Incluir QR-Code</strong></legend>
                 @textarea(qrcodeForm("texto"), '_label -> "Texto")
                 @select(qrcodeForm("tipo"),
-                options("INFO"->"Info","URL"->"URL","DESAFIO"->"Desafio"),
+                options("INFO"->"Info","URL"->"URL","DESAFIO"->"Desafio","DESAFIOME"->"Desafio Multipla Escolha"),
                 '_label -> "Tipo", '_id->"tipo", 'onchange->"verificaTipo()")
 
                 <div id="desafio">
-                    @inputText(qrcodeForm("resposta"), '_label -> "Resposta")
+                    @textarea(qrcodeForm("resposta"), '_label -> "Resposta")
+                </div>
+                <div id="desafioMultiplaEscolha">
+                    <input type="hidden" id="random" name="random" value="0"/>
+                    @textarea(qrcodeForm("alternativa1"), '_label -> "Alternativa 1")
+                    @textarea(qrcodeForm("alternativa2"), '_label -> "Alternativa 2")
+                    @textarea(qrcodeForm("alternativa3"), '_label -> "Alternativa 3")
+                </div>
+                <div id="pontuacao">
                     @inputText(qrcodeForm("pontuacao"), '_label -> "Pontuação")
                 </div>
 
@@ -78,11 +93,24 @@
                     function verificaTipo(){
                        if($('#tipo').val() == "DESAFIO"){
                            $('#desafio').show();
+                           $('#pontuacao').show();
+                           $('#desafioMultiplaEscolha').hide();
                        }else{
-                           $('#desafio').hide();
+                           if($('#tipo').val() == "DESAFIOME"){
+                               $('#desafio').show();
+                               $('#desafioMultiplaEscolha').show();
+                               $('#pontuacao').show();
+                           }else{
+                               $('#desafio').hide();
+                               $('#pontuacao').hide();
+                               $('#desafioMultiplaEscolha').hide();
+                           }
                        }
                     }
                     $('#desafio').hide();
+                    $('#pontuacao').hide();
+                    $('#desafioMultiplaEscolha').hide();
+
                 </script>
 
 
