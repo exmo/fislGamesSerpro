@@ -32,7 +32,7 @@ object Resposta {
     get[String]("email")~
       get[String]("nome")~
       get[String]("telefone")~
-      get[Long]("pontuacao") map {
+      get[BigDecimal]("pontuacao") map {
       case email~nome~telefone~pontuacao => Seq(email,nome,telefone,pontuacao)
     }
   }
@@ -43,7 +43,7 @@ object Resposta {
       get[Pk[String]]("email")~
       get[String]("qrcode.resposta")~
       get[String]("resposta")~
-      get[BigDecimal]("pontuacao")~
+      get[Long]("pontuacao")~
       get[String]("ultima_atualizacao") map {
       case idQrCode~texto~email~resposta_correta~resposta~pontuacao~ultima_atualizacao => Seq(idQrCode,texto,email,resposta_correta,resposta,pontuacao,formataDataHora(ultima_atualizacao))
     }
