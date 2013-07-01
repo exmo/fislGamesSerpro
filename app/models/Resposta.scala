@@ -98,7 +98,7 @@ object Resposta {
   }
   
   def obtemPontuacaoUsuario(email: String) = DB.withConnection { implicit c =>
-    SQL("select coalesce(sum(pontuacao),0) as pontuacao from resposta where email = {email}").on('email -> email).as(scalar[Long].single)
+    SQL("select coalesce(sum(pontuacao),0) as pontuacao from resposta where email = {email}").on('email -> email).as(scalar[BigDecimal].single)
 
   }  
 }

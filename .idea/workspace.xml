@@ -21,7 +21,7 @@
     <file path="/2.sql" changelist="1c4402a2-2281-4fa9-981a-f9d6be7c082e" time="1372365324642" ignored="false" />
     <file path="/ranking.scala.html" changelist="1c4402a2-2281-4fa9-981a-f9d6be7c082e" time="1372364706550" ignored="false" />
     <file path="$PROJECT_DIR$/target/scala-2.10/src_managed/main/views/html/ranking.template.scala" changelist="1c4402a2-2281-4fa9-981a-f9d6be7c082e" time="1371498874854" ignored="false" />
-    <file path="/Resposta.scala" changelist="1c4402a2-2281-4fa9-981a-f9d6be7c082e" time="1372712350043" ignored="false" />
+    <file path="/Resposta.scala" changelist="1c4402a2-2281-4fa9-981a-f9d6be7c082e" time="1372712692686" ignored="false" />
     <file path="/3.sql" changelist="1c4402a2-2281-4fa9-981a-f9d6be7c082e" time="1372185764181" ignored="false" />
     <file path="/Dummy.txt" changelist="1c4402a2-2281-4fa9-981a-f9d6be7c082e" time="1372681891065" ignored="false" />
     <file path="/phonegap.scala.html" changelist="1c4402a2-2281-4fa9-981a-f9d6be7c082e" time="1371570089734" ignored="false" />
@@ -108,7 +108,7 @@
       <file leaf-file-name="Resposta.scala" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/models/Resposta.scala">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="36" column="36" selection-start="814" selection-end="814" vertical-scroll-proportion="0.34954008">
+            <state line="89" column="53" selection-start="2848" selection-end="2856" vertical-scroll-proportion="1.5965835">
               <folding />
             </state>
           </provider>
@@ -617,7 +617,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/models/Resposta.scala">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="36" column="36" selection-start="814" selection-end="814" vertical-scroll-proportion="0.34954008">
+        <state line="89" column="53" selection-start="2848" selection-end="2856" vertical-scroll-proportion="1.5965835">
           <folding />
         </state>
       </provider>
