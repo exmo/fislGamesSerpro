@@ -5,13 +5,8 @@ import anorm.SqlParser._
 import play.api.db.DB
 import play.api.Play.current
 import util.Random
-//import java.sql._
-//import org.joda.time._
-//import java.math.BigInteger
-//import org.joda.time.DateTime
 
 case class QRCode (
-
   val id: Pk[Long] = NotAssigned,
   var texto:String,
   var tipo:String,
@@ -51,22 +46,10 @@ object QRCode {
 
         var random = Random.nextInt(4);
         var textoQrCode = texto+"#"+pontuacao;
-
         if(tipo == "DESAFIOME"){
-            if(random == 0){
-                textoQrCode = textoQrCode + "#" + resposta + "#" + alternativa3 + "#" + alternativa1 + "#" + alternativa2;
-            }
-            if(random == 1){
-                textoQrCode = textoQrCode + "#" + alternativa1 + "#" + resposta + "#" + alternativa2 + "#" + alternativa3;
-            }
-            if(random == 2){
-                textoQrCode = textoQrCode + "#" + alternativa2 + "#" + alternativa3 + "#" + resposta + "#" + alternativa1;
-            }
-            if(random == 3){
-                textoQrCode = textoQrCode + "#" + alternativa2 + "#" + alternativa1 + "#" + alternativa3 + "#" + resposta;
-            }
+            textoQrCode = textoQrCode + "#" + alternativa1 + "#" +  alternativa2 + "#" + alternativa3
         }
-        return textoQrCode;
+        return textoQrCode
   }
 
 

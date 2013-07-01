@@ -8,6 +8,7 @@
 </th>
 }
 
+@geraTextoQrcode(q:QRCode) = {SERPRO#@q.tipo#@q.id#@q.textoQrCode}
 <script>
     function gerarQRCode() {
     }
@@ -46,7 +47,7 @@
                 <td>@q.pontuacao</td>
                 <td>
                     <form name="qrForm@q.id.get" action="/qrcode/render" method="post">
-                    <input type="hidden" id="texto@q.id.get" name="texto" value="SERPRO#@q.tipo#@q.id#@q.textoQrCode"/>
+                    <input type="hidden" id="texto@q.id.get" name="texto" value="@geraTextoQrcode(q)"/>
                     <input type="hidden" name="size" value="320"/>
                     <div id="qr@q.id" onclick="document.forms['qrForm@q.id'].submit();"></div>
                     </form>
@@ -60,7 +61,7 @@
                     $('#qr@q.id').qrcode({
                         width: 64,
                         height: 64,
-                        text: 'SERPRO#@q.tipo#@q.id#@q.textoQrCode'
+                        text: '@geraTextoQrcode(q)'
                     });
                 </script>
             </tr>
@@ -71,6 +72,19 @@
     @form(routes.Application.gerarQRCode, 'class -> "form-horizontal") {
         <fieldset>
             <legend><strong>Incluir QR-Code</strong></legend>
+                    
+                @qrcodeForm.globalError.map { error =>
+                <div class="alert alert-error">
+                    @error.message
+                </div>
+                }
+
+                @flash.get("success").map { message =>
+                <div class="alert alert-success">
+                    @message
+                </div>
+                }            
+                
                 @textarea(qrcodeForm("texto"), '_label -> "Texto")
                 @select(qrcodeForm("tipo"),
                 options("INFO"->"Info","URL"->"URL","DESAFIO"->"Desafio","DESAFIOME"->"Desafio Multipla Escolha"),

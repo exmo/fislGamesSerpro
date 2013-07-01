@@ -29,10 +29,10 @@
         @list.map{ case(Seq(email,nome,telefone,pontuacao)) =>
             <tr>
                 <td>@nome</td>
-                <td><a href="/respostas/@email/@nome?pontuacao=@pontuacao">@email</a></td>
+                <td><a href="/respostas/@email">@email</a></td>
                 <td>@telefone</td>
                 <td>@pontuacao</td>
-                <td><a href="/respostas/@email/@nome?pontuacao=@pontuacao" class="btn btn-info" />Ver Respostas</a></td>
+                <td><a href="/respostas/@email" class="btn btn-info" />Ver Respostas</a></td>
             </tr>
         }
         </tbody>

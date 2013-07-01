@@ -1,4 +1,4 @@
-@(list: List[Seq[Any]], nome:String, pontuacao: Int)
+@(list: List[Seq[Any]], nome:String, email:String, pontuacao: Long)
 
 @import helper._
 
@@ -8,41 +8,37 @@
 </th>
 }
 
-
 @main("Respostas por usuário") {
 <h1>@list.size Respostas de @nome</h1>
-
 <table class="table table-striped table-bordered">
     <thead>
     <tr>
         @header("#")
         @header("Desafio")
-        @header("Resposta")
-        @header("Pontuação")
+        @header("Resposta Correta")
+        @header("Resposta Usuário")        
+        @header("Pontos")
         @header("Data/Hora")
+        @header("Ações")        
     </tr>
     </thead>
     <tbody>
-    @list.map{case(Seq(idQrCode,desafio,email,resposta,pontuacao,ultima_atualizacao)) =>
-    <tr>
+    @list.map{case(Seq(idQrCode,desafio,email,resposta_correta,resposta,pontuacao,ultima_atualizacao)) =>
+    <tr valign="middle">
         <td>@idQrCode</td>
         <td>@desafio</td>
-        <td>@resposta</td>
+        <td>@resposta_correta</td>        
+        <td><i class="@if(pontuacao!=0){icon-ok}else{icon-remove}"></i> @resposta</td>
         <td>@pontuacao</td>
         <td>@ultima_atualizacao</td>
-    </tr>
-    }
-    @if(pontuacao != -1) {
-    <tr>
-        <td colspan="4"><strong>Total Pontos</strong></td>
-        <td>@pontuacao</td>
+        <td>@if(pontuacao==0){<button onclick="if(confirm('Tem certeza?')) { window.location.href = '/respostacorreta/@idQrCode/@email'; };" class="btn btn-success" />Considerar como Correta</button>}</td>       
     </tr>
     }
     </tbody>
 </table>
 
-
-
-
+    @if(pontuacao != -1) {
+    <h2>Total de Pontos: @pontuacao
+    }
 
 }

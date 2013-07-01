@@ -9,7 +9,7 @@
 
 <div id="actions">
 
-    @helper.form(routes.Application.authenticate) {
+    @helper.form(routes.Login.authenticate) {
         @loginForm.globalError.map { error =>
         <div class="alert alert-error">
             @error.message

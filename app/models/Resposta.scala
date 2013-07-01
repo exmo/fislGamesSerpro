@@ -32,7 +32,7 @@ object Resposta {
     get[String]("email")~
       get[String]("nome")~
       get[String]("telefone")~
-      get[BigDecimal]("pontuacao") map {
+      get[Long]("pontuacao") map {
       case email~nome~telefone~pontuacao => Seq(email,nome,telefone,pontuacao)
     }
   }
@@ -41,13 +41,14 @@ object Resposta {
     get[Pk[Long]]("idQrCode")~
       get[String]("texto")~
       get[Pk[String]]("email")~
+      get[String]("qrcode.resposta")~
       get[String]("resposta")~
       get[Long]("pontuacao")~
       get[String]("ultima_atualizacao") map {
-      case idQrCode~texto~email~resposta~pontuacao~ultima_atualizacao => Seq(idQrCode,texto,email,resposta,pontuacao,formataDataHora(ultima_atualizacao))
+      case idQrCode~texto~email~resposta_correta~resposta~pontuacao~ultima_atualizacao => Seq(idQrCode,texto,email,resposta_correta,resposta,pontuacao,formataDataHora(ultima_atualizacao))
     }
   }
-
+  
   def formataDataHora(dataHora: String): String = {
     var dt = new DateTime(dataHora)
     var fmt = DateTimeFormat.forPattern("dd/MM/yyyy HH:mm:ss")
@@ -74,6 +75,17 @@ object Resposta {
     }
   }
 
+  def update(idQrCode:Long, email: String, pontuacao: Long) {
+    DB.withConnection { implicit c =>
+      SQL("update resposta set resposta=resposta || ' (considerada Correta pela Organização)', pontuacao={pontuacao}, ultima_atualizacao='"+new DateTime()+"'" +
+        " where idQrCode={idQrCode} and email={email}").on(
+        'idQrCode -> idQrCode,
+        'email -> email,
+        'pontuacao -> pontuacao
+      ).executeUpdate()
+    }
+  }
+  
   def obtemPontuacaoTodosUsuarios(): List[Seq[Any]] = DB.withConnection { implicit c =>
     SQL("select u.email, u.nome, u.telefone, coalesce(sum(r.pontuacao),0) as pontuacao from usuario u left " +
         "join resposta r on u.email = r.email group by u.email, u.nome, u.telefone order by pontuacao desc").as(users *)
@@ -81,9 +93,12 @@ object Resposta {
   }
 
   def obtemRespostasUsuario(email: String): List[Seq[Any]] = DB.withConnection { implicit c =>
-  //def obtemRespostasUsuario(email: String): List[Resposta] = DB.withConnection { implicit c =>
-    //SQL("select * from resposta where email={email}").on('email -> email).as(resp *)
-    SQL("select r.idQrCode, q.texto, r.email, r.resposta, r.pontuacao, r.ultima_atualizacao from resposta  r " +
+    SQL("select r.idQrCode, q.texto, r.email, q.resposta, r.resposta, r.pontuacao, r.ultima_atualizacao from resposta  r " +
       "inner join qrcode q on q.id = r.idQrCode where r.email={email}").on('email -> email).as(resps *)
   }
+  
+  def obtemPontuacaoUsuario(email: String) = DB.withConnection { implicit c =>
+    SQL("select coalesce(sum(pontuacao),0) as pontuacao from resposta where email = {email}").on('email -> email).as(scalar[Long].single)
+
+  }  
 }

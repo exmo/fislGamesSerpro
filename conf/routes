@@ -10,16 +10,17 @@ POST    /qrcode/render              controllers.Application.renderQRCodePost
 POST    /qrcode/gerar               controllers.Application.gerarQRCode
 POST    /qrcode/:id/delete          controllers.Application.deleteQRCode(id: Long)
 GET     /ranking                    controllers.Application.ranking
-GET     /respostas/:email/:nome     controllers.Application.respostas(email: String, nome: String, pontuacao: Int ?= -1)
+GET     /respostas/:email           controllers.Application.respostas(email: String)
+GET     /respostacorreta/:id/:email controllers.Application.considerarRespostaCorretaDesafio(id: Long, email: String)
 
 # ROTAS DISPONIVEIS PARA ACESSO REST VIA APP PHONEGAP, RETORNANDO JSONP
 GET     /usuario/criar/:email/:nome/:telefone     controllers.Application.criarUsuario(email: String, nome: String, telefone: String, callback: String)
 GET     /desafio/:id/:email/:resposta   controllers.Application.responderDesafio(id: Long, email: String, resposta: String, callback: String)
 
 # Authentication
-GET     /login                      controllers.Application.login
-POST    /auth                       controllers.Application.authenticate
-GET     /logout                     controllers.Application.logout
+GET     /login                      controllers.Login.login
+POST    /auth                       controllers.Login.authenticate
+GET     /logout                     controllers.Login.logout
 
 # Map static resources from the /public folder to the /assets URL path
 GET     /assets/*file               controllers.Assets.at(path="/public", file)

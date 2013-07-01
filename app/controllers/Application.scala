@@ -19,41 +19,6 @@ import play.api.mvc.Security
 import org.joda.time.DateTime
 
 object Application extends Controller with Secured {
-
-  // -- Authentication
-
-  val loginForm = Form(
-    tuple(
-      "email" -> text,
-      "password" -> text
-    ) verifying ("Email ou senha inválidos", result => result match {
-      case (email, password) => check(email, password)
-    })
-  )
-
-  def check(username: String, password: String) = {
-    (username == "admin" && password == "1234")
-  }
-
-  def login = Action { implicit request =>
-    Ok(html.login(loginForm))
-  }
-
-  def authenticate = Action { implicit request =>
-    loginForm.bindFromRequest.fold(
-      formWithErrors => BadRequest(html.login(formWithErrors)),
-      user => Redirect(routes.Application.formQRCode).withSession(Security.username -> user._1)
-    )
-  }
-
-  def logout = Action {
-    Redirect(routes.Application.login).withNewSession.flashing(
-      "success" -> "Logout efetuado com sucesso."
-    )
-  }
-
-  // -- Web
-
   val qrcodeForm = Form(
     mapping(
       "id" -> ignored(NotAssigned:Pk[Long]),
@@ -66,6 +31,7 @@ object Application extends Controller with Secured {
       "textoQrCode" -> default(text,"N/A"),
       "pontuacao" -> default(number,0)
     )(QRCode.apply)(QRCode.unapply)
+    verifying ("Texto não pode conter o caracter '#'", form => form.texto.indexOf('#') == -1)
   )
 
   def formQRCode = withAuth { user => implicit request =>
@@ -88,22 +54,27 @@ object Application extends Controller with Secured {
         qrcode => {
 
           QRCode.create(qrcode.texto, qrcode.tipo, qrcode.resposta,qrcode.alternativa1,qrcode.alternativa2,qrcode.alternativa3,qrcode.pontuacao)
-          Redirect(routes.Application.formQRCode())
+          Redirect(routes.Application.formQRCode)
         }
       )
     }
 
   def deleteQRCode(id: Long) = withAuth { user => implicit request =>
     QRCode.delete(id)
-    Redirect(routes.Application.formQRCode())
+    Redirect(routes.Application.formQRCode)
   }
 
   def ranking = withAuth { user => implicit request =>
     Ok(views.html.ranking(Resposta.obtemPontuacaoTodosUsuarios()))
   }
 
-  def respostas(email: String, nome: String, pontuacao: Int) = withAuth { user => implicit request =>
-    Ok(views.html.resposta(Resposta.obtemRespostasUsuario(email), nome, pontuacao))
+  def respostas(email: String) = withAuth { user => implicit request =>
+    var nomeUsuario = ""
+    Usuario.findByEmail(email).map { usuario =>
+      nomeUsuario = usuario.nome
+    }
+    var pontos = Resposta.obtemPontuacaoUsuario(email)
+    Ok(views.html.resposta(Resposta.obtemRespostasUsuario(email), nomeUsuario, email, pontos))    
   }
 
   // -- REST/JSONP
@@ -149,29 +120,12 @@ object Application extends Controller with Secured {
     }
     Ok(Jsonp(callback, json))
   }
-}
-
-trait Secured {
-
-  def username(request: RequestHeader) = request.session.get(Security.username)
-
-  def onUnauthorized(request: RequestHeader) = Results.Redirect(routes.Application.login)
-
-  def withAuth(f: => String => Request[AnyContent] => Result) = {
-    Security.Authenticated(username, onUnauthorized) { user =>
-      Action(request => f(user)(request))
+  
+  def considerarRespostaCorretaDesafio(id: Long, email: String) = withAuth { user => implicit request =>
+    QRCode.findById(id).map { desafio =>
+      Resposta.update(id,email,desafio.pontuacao);
     }
-  }
-
-  /**
-   * This method shows how you could wrap the withAuth method to also fetch your user
-   * You will need to implement UserDAO.findOneByUsername
-   */
-  /*
-  def withUser(f: User => Request[AnyContent] => Result) = withAuth { username => implicit request =>
-    UserDAO.findOneByUsername(username).map { user =>
-      f(user)(request)
-    }.getOrElse(onUnauthorized(request))
-  } */
+    Redirect(routes.Application.respostas(email))
+  }  
+  
 }
-
