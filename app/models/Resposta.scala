@@ -77,7 +77,7 @@ object Resposta {
 
   def update(idQrCode:Long, email: String, pontuacao: Long) {
     DB.withConnection { implicit c =>
-      SQL("update resposta set resposta=resposta || ' (considerada Correta pela Organização)', pontuacao={pontuacao}, ultima_atualizacao='"+new DateTime()+"'" +
+      SQL("update resposta set resposta=CONCAT(resposta,\" (considerada Correta pela Organização)\") , pontuacao={pontuacao}, ultima_atualizacao='"+new DateTime()+"'" +
         " where idQrCode={idQrCode} and email={email}").on(
         'idQrCode -> idQrCode,
         'email -> email,
