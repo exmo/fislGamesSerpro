@@ -54,7 +54,7 @@
                 </td>
                 <td>
                     @form(routes.Application.deleteQRCode(q.id.get)) {
-                    <input type="submit" value="Delete" class="btn btn-danger" />
+                    <input type="submit" value="Delete" class="btn btn-danger" onclick="return confirm('Tem certeza?');" />
                     }
                 </td>
                 <script>
