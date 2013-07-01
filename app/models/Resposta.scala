@@ -43,7 +43,7 @@ object Resposta {
       get[Pk[String]]("email")~
       get[String]("qrcode.resposta")~
       get[String]("resposta")~
-      get[Long]("pontuacao")~
+      get[BigDecimal]("pontuacao")~
       get[String]("ultima_atualizacao") map {
       case idQrCode~texto~email~resposta_correta~resposta~pontuacao~ultima_atualizacao => Seq(idQrCode,texto,email,resposta_correta,resposta,pontuacao,formataDataHora(ultima_atualizacao))
     }

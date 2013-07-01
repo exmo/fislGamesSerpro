@@ -2,7 +2,57 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="1c4402a2-2281-4fa9-981a-f9d6be7c082e" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/conf/evolutions/default/1.sql" afterPath="$PROJECT_DIR$/conf/evolutions/default/1.sql" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/models/Resposta.scala" afterPath="$PROJECT_DIR$/app/models/Resposta.scala" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/SBT__cglib_cglib_nodep_2_1_3.xml" afterPath="$PROJECT_DIR$/.idea/libraries/SBT__cglib_cglib_nodep_2_1_3.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/SBT__ch_qos_logback_logback_classic_1_0_7.xml" afterPath="$PROJECT_DIR$/.idea/libraries/SBT__ch_qos_logback_logback_classic_1_0_7.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/SBT__com_google_code_findbugs_jsr305_2_0_1.xml" afterPath="$PROJECT_DIR$/.idea/libraries/SBT__com_google_code_findbugs_jsr305_2_0_1.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/SBT__com_jolbox_bonecp_0_7_1_RELEASE.xml" afterPath="$PROJECT_DIR$/.idea/libraries/SBT__com_jolbox_bonecp_0_7_1_RELEASE.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/SBT__com_novocode_junit_interface_0_9.xml" afterPath="$PROJECT_DIR$/.idea/libraries/SBT__com_novocode_junit_interface_0_9.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/SBT__com_typesafe_akka_akka_slf4j_2_10_2_1_0.xml" afterPath="$PROJECT_DIR$/.idea/libraries/SBT__com_typesafe_akka_akka_slf4j_2_10_2_1_0.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/SBT__commons_logging_commons_logging_1_1_1.xml" afterPath="$PROJECT_DIR$/.idea/libraries/SBT__commons_logging_commons_logging_1_1_1.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/SBT__javax_servlet_javax_servlet_api_3_0_1.xml" afterPath="$PROJECT_DIR$/.idea/libraries/SBT__javax_servlet_javax_servlet_api_3_0_1.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/SBT__javax_transaction_jta_1_1.xml" afterPath="$PROJECT_DIR$/.idea/libraries/SBT__javax_transaction_jta_1_1.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/SBT__javax_validation_validation_api_1_0_0_GA.xml" afterPath="$PROJECT_DIR$/.idea/libraries/SBT__javax_validation_validation_api_1_0_0_GA.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/SBT__net_java_dev_jna_jna_3_4_0.xml" afterPath="$PROJECT_DIR$/.idea/libraries/SBT__net_java_dev_jna_jna_3_4_0.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/SBT__net_java_dev_jna_platform_3_4_0.xml" afterPath="$PROJECT_DIR$/.idea/libraries/SBT__net_java_dev_jna_platform_3_4_0.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/SBT__net_sf_ehcache_ehcache_core_2_6_0.xml" afterPath="$PROJECT_DIR$/.idea/libraries/SBT__net_sf_ehcache_ehcache_core_2_6_0.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/SBT__net_sourceforge_cssparser_cssparser_0_9_5.xml" afterPath="$PROJECT_DIR$/.idea/libraries/SBT__net_sourceforge_cssparser_cssparser_0_9_5.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/SBT__net_sourceforge_htmlunit_htmlunit_2_9.xml" afterPath="$PROJECT_DIR$/.idea/libraries/SBT__net_sourceforge_htmlunit_htmlunit_2_9.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/SBT__net_sourceforge_nekohtml_nekohtml_1_9_15.xml" afterPath="$PROJECT_DIR$/.idea/libraries/SBT__net_sourceforge_nekohtml_nekohtml_1_9_15.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/SBT__oauth_signpost_signpost_core_1_2_1_2.xml" afterPath="$PROJECT_DIR$/.idea/libraries/SBT__oauth_signpost_signpost_core_1_2_1_2.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/SBT__org_apache_commons_commons_lang3_3_1.xml" afterPath="$PROJECT_DIR$/.idea/libraries/SBT__org_apache_commons_commons_lang3_3_1.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/SBT__org_apache_httpcomponents_httpclient_4_0_1.xml" afterPath="$PROJECT_DIR$/.idea/libraries/SBT__org_apache_httpcomponents_httpclient_4_0_1.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/SBT__org_apache_httpcomponents_httpclient_4_1_2.xml" afterPath="$PROJECT_DIR$/.idea/libraries/SBT__org_apache_httpcomponents_httpclient_4_1_2.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/SBT__org_apache_httpcomponents_httpcore_4_0_1.xml" afterPath="$PROJECT_DIR$/.idea/libraries/SBT__org_apache_httpcomponents_httpcore_4_0_1.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/SBT__org_apache_httpcomponents_httpmime_4_1_2.xml" afterPath="$PROJECT_DIR$/.idea/libraries/SBT__org_apache_httpcomponents_httpmime_4_1_2.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/SBT__org_codehaus_jackson_jackson_core_asl_1_9_10.xml" afterPath="$PROJECT_DIR$/.idea/libraries/SBT__org_codehaus_jackson_jackson_core_asl_1_9_10.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/SBT__org_easytesting_fest_util_1_1_6.xml" afterPath="$PROJECT_DIR$/.idea/libraries/SBT__org_easytesting_fest_util_1_1_6.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/SBT__org_fluentlenium_fluentlenium_core_0_7_3.xml" afterPath="$PROJECT_DIR$/.idea/libraries/SBT__org_fluentlenium_fluentlenium_core_0_7_3.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/SBT__org_hamcrest_hamcrest_core_1_1.xml" afterPath="$PROJECT_DIR$/.idea/libraries/SBT__org_hamcrest_hamcrest_core_1_1.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/SBT__org_javassist_javassist_3_16_1_GA.xml" afterPath="$PROJECT_DIR$/.idea/libraries/SBT__org_javassist_javassist_3_16_1_GA.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/SBT__org_scala_tools_testing_test_interface_0_5.xml" afterPath="$PROJECT_DIR$/.idea/libraries/SBT__org_scala_tools_testing_test_interface_0_5.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/SBT__org_seleniumhq_selenium_selenium_chrome_driver_2_25_0.xml" afterPath="$PROJECT_DIR$/.idea/libraries/SBT__org_seleniumhq_selenium_selenium_chrome_driver_2_25_0.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/SBT__org_seleniumhq_selenium_selenium_firefox_driver_2_25_0.xml" afterPath="$PROJECT_DIR$/.idea/libraries/SBT__org_seleniumhq_selenium_selenium_firefox_driver_2_25_0.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/SBT__org_seleniumhq_selenium_selenium_java_2_25_0.xml" afterPath="$PROJECT_DIR$/.idea/libraries/SBT__org_seleniumhq_selenium_selenium_java_2_25_0.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/SBT__org_seleniumhq_selenium_selenium_support_2_25_0.xml" afterPath="$PROJECT_DIR$/.idea/libraries/SBT__org_seleniumhq_selenium_selenium_support_2_25_0.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/SBT__org_slf4j_jcl_over_slf4j_1_6_6.xml" afterPath="$PROJECT_DIR$/.idea/libraries/SBT__org_slf4j_jcl_over_slf4j_1_6_6.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/SBT__org_slf4j_jul_to_slf4j_1_6_6.xml" afterPath="$PROJECT_DIR$/.idea/libraries/SBT__org_slf4j_jul_to_slf4j_1_6_6.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/SBT__org_specs2_scalaz_concurrent_2_10_7_0_0.xml" afterPath="$PROJECT_DIR$/.idea/libraries/SBT__org_specs2_scalaz_concurrent_2_10_7_0_0.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/SBT__org_specs2_scalaz_core_2_10_7_0_0.xml" afterPath="$PROJECT_DIR$/.idea/libraries/SBT__org_specs2_scalaz_core_2_10_7_0_0.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/SBT__org_specs2_specs2_2_10_1_13.xml" afterPath="$PROJECT_DIR$/.idea/libraries/SBT__org_specs2_specs2_2_10_1_13.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/SBT__org_springframework_spring_context_3_1_2_RELEASE.xml" afterPath="$PROJECT_DIR$/.idea/libraries/SBT__org_springframework_spring_context_3_1_2_RELEASE.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/SBT__org_springframework_spring_core_3_1_2_RELEASE.xml" afterPath="$PROJECT_DIR$/.idea/libraries/SBT__org_springframework_spring_core_3_1_2_RELEASE.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/SBT__org_w3c_css_sac_1_3.xml" afterPath="$PROJECT_DIR$/.idea/libraries/SBT__org_w3c_css_sac_1_3.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/SBT__play_anorm_2_10_2_1_1.xml" afterPath="$PROJECT_DIR$/.idea/libraries/SBT__play_anorm_2_10_2_1_1.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/SBT__play_play_iteratees_2_10_2_1_1.xml" afterPath="$PROJECT_DIR$/.idea/libraries/SBT__play_play_iteratees_2_10_2_1_1.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/SBT__play_play_java_2_10_2_1_1.xml" afterPath="$PROJECT_DIR$/.idea/libraries/SBT__play_play_java_2_10_2_1_1.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/SBT__play_play_jdbc_2_10_2_1_1.xml" afterPath="$PROJECT_DIR$/.idea/libraries/SBT__play_play_jdbc_2_10_2_1_1.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/SBT__xerces_xercesImpl_2_9_1.xml" afterPath="$PROJECT_DIR$/.idea/libraries/SBT__xerces_xercesImpl_2_9_1.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/Scala_2_10_0.xml" afterPath="$PROJECT_DIR$/.idea/libraries/Scala_2_10_0.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/Scala_2_9_2.xml" afterPath="$PROJECT_DIR$/.idea/libraries/Scala_2_9_2.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea_modules/fislGamesSerpro-build.iml" afterPath="$PROJECT_DIR$/.idea_modules/fislGamesSerpro-build.iml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/modules.xml" afterPath="$PROJECT_DIR$/.idea/modules.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="fislGamesSerpro.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -21,9 +71,9 @@
     <file path="/2.sql" changelist="1c4402a2-2281-4fa9-981a-f9d6be7c082e" time="1372365324642" ignored="false" />
     <file path="/ranking.scala.html" changelist="1c4402a2-2281-4fa9-981a-f9d6be7c082e" time="1372364706550" ignored="false" />
     <file path="$PROJECT_DIR$/target/scala-2.10/src_managed/main/views/html/ranking.template.scala" changelist="1c4402a2-2281-4fa9-981a-f9d6be7c082e" time="1371498874854" ignored="false" />
-    <file path="/Resposta.scala" changelist="1c4402a2-2281-4fa9-981a-f9d6be7c082e" time="1372417912113" ignored="false" />
+    <file path="/Resposta.scala" changelist="1c4402a2-2281-4fa9-981a-f9d6be7c082e" time="1372712035668" ignored="false" />
     <file path="/3.sql" changelist="1c4402a2-2281-4fa9-981a-f9d6be7c082e" time="1372185764181" ignored="false" />
-    <file path="/Dummy.txt" changelist="1c4402a2-2281-4fa9-981a-f9d6be7c082e" time="1372364239828" ignored="false" />
+    <file path="/Dummy.txt" changelist="1c4402a2-2281-4fa9-981a-f9d6be7c082e" time="1372681891065" ignored="false" />
     <file path="/phonegap.scala.html" changelist="1c4402a2-2281-4fa9-981a-f9d6be7c082e" time="1371570089734" ignored="false" />
     <file path="/jqm.scala.html" changelist="1c4402a2-2281-4fa9-981a-f9d6be7c082e" time="1371568419581" ignored="false" />
     <file path="/resposta.scala.html" changelist="1c4402a2-2281-4fa9-981a-f9d6be7c082e" time="1372185896425" ignored="false" />
@@ -89,10 +139,53 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="1.sql" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="Application.scala" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/controllers/Application.scala">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="40" column="55" selection-start="1075" selection-end="1075" vertical-scroll-proportion="0.0">
+              <folding>
+                <marker date="1372711436000" expanded="true" signature="166:180" placeholder="(...)" />
+                <marker date="1372711436000" expanded="true" signature="412:807" placeholder="(...)" />
+                <marker date="1372711436000" expanded="true" signature="1992:2081" placeholder="{...}" />
+                <marker date="1372711436000" expanded="true" signature="2176:2227" placeholder="{...}" />
+                <marker date="1372711436000" expanded="true" signature="3738:3807" placeholder="{...}" />
+                <marker date="1372711436000" expanded="true" signature="3828:3868" placeholder="/**...*/" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Resposta.scala" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/app/models/Resposta.scala">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="44" column="29" selection-start="988" selection-end="988" vertical-scroll-proportion="0.70959264">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="1.sql" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/conf/evolutions/default/1.sql">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="7" column="17" selection-start="128" selection-end="128" vertical-scroll-proportion="0.15555556">
+            <state line="7" column="17" selection-start="128" selection-end="128" vertical-scroll-proportion="0.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="routes" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/conf/routes">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="5" column="22" selection-start="201" selection-end="201" vertical-scroll-proportion="0.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="application.conf" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/conf/application.conf">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="49" column="0" selection-start="1526" selection-end="1526" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -101,7 +194,7 @@
       <file leaf-file-name="formQRCode.scala.html" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/views/formQRCode.scala.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="48" column="101" selection-start="1338" selection-end="1338" vertical-scroll-proportion="-6.25">
+            <state line="49" column="101" selection-start="1405" selection-end="1405" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -110,7 +203,7 @@
       <file leaf-file-name="QRCode.scala" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/models/QRCode.scala">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="51" column="37" selection-start="1492" selection-end="1492" vertical-scroll-proportion="0.0">
+            <state line="43" column="37" selection-start="1187" selection-end="1187" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -140,7 +233,6 @@
         <option value="$PROJECT_DIR$/conf/evolutions/default/3.sql" />
         <option value="$PROJECT_DIR$/project/Build.scala" />
         <option value="$PROJECT_DIR$/app/views/ranking.scala.html" />
-        <option value="$PROJECT_DIR$/conf/routes" />
         <option value="$PROJECT_DIR$/app/models/Usuario.scala" />
         <option value="$PROJECT_DIR$/conf/evolutions/default/2.sql" />
         <option value="$PROJECT_DIR$/conf/evolutions/default/4.sql" />
@@ -148,15 +240,15 @@
         <option value="$PROJECT_DIR$/app/views/formQRCode.scala.html" />
         <option value="$PROJECT_DIR$/app/models/QRCode.scala" />
         <option value="$PROJECT_DIR$/conf/application.conf" />
-        <option value="$PROJECT_DIR$/app/models/Resposta.scala" />
         <option value="$PROJECT_DIR$/conf/evolutions/default/1.sql" />
+        <option value="$PROJECT_DIR$/conf/routes" />
+        <option value="$PROJECT_DIR$/app/models/Resposta.scala" />
       </list>
     </option>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="y" value="24" />
-    <option name="width" value="1600" />
-    <option name="height" value="852" />
+    <option name="width" value="1440" />
+    <option name="height" value="900" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">
     <OptionsSetting value="true" id="Add" />
@@ -169,10 +261,10 @@
     <ConfirmationsSetting value="0" id="Remove" />
   </component>
   <component name="ProjectReloadState">
-    <option name="STATE" value="0" />
+    <option name="STATE" value="2" />
   </component>
   <component name="ProjectView">
-    <navigator currentView="Scope" currentSubView="Default" proportions="" version="1" splitterProportion="0.5">
+    <navigator currentView="ProjectPane" proportions="" version="1" splitterProportion="0.5">
       <flattenPackages Scope="true" PackagesPane="true" ProjectPane="true" />
       <showMembers ProjectPane="true" />
       <showModules />
@@ -184,6 +276,32 @@
       <sortByType />
     </navigator>
     <panes>
+      <pane id="PackagesPane">
+        <subPane>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="fislGamesSerpro" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PackageViewProjectNode" />
+            </PATH_ELEMENT>
+          </PATH>
+        </subPane>
+      </pane>
+      <pane id="Scope">
+        <subPane subId="Default" />
+        <subPane subId="Project Files" />
+        <subPane subId="All">
+          <PATH>
+            <PATH_ELEMENT USER_OBJECT="Root">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT USER_OBJECT="project">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+          </PATH>
+        </subPane>
+      </pane>
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -192,15 +310,17 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
             </PATH_ELEMENT>
           </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="fislGamesSerpro" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="project" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
         </subPane>
-      </pane>
-      <pane id="Scope">
-        <subPane subId="Default" />
-        <subPane subId="Project Files" />
-        <subPane subId="All" />
-      </pane>
-      <pane id="PackagesPane">
-        <subPane />
       </pane>
     </panes>
   </component>
@@ -350,7 +470,7 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="0" y="24" width="1600" height="852" extended-state="3" />
+    <frame x="0" y="0" width="1440" height="900" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
@@ -359,13 +479,13 @@
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.0" sideWeight="0.5" order="0" side_tool="true" content_ui="tabs" />
-      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.24935567" sideWeight="0.33144477" order="0" side_tool="true" content_ui="tabs" />
+      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.22238164" sideWeight="0.46633416" order="0" side_tool="true" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3286119" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
-      <window_info id="Structure" active="false" anchor="left" auto_hide="true" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.24903475" sideWeight="0.66855526" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Structure" active="false" anchor="left" auto_hide="true" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.24892396" sideWeight="0.6683292" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.22265123" sideWeight="0.32719547" order="1" side_tool="false" content_ui="combo" x="627" y="99" width="346" height="706" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.22238164" sideWeight="0.53366584" order="1" side_tool="false" content_ui="combo" x="627" y="99" width="346" height="706" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -439,6 +559,13 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/app/models/QRCode.scala">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="51" column="37" selection-start="1492" selection-end="1492" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/app/views/resposta.scala.html">
       <provider selected="true" editor-type-id="text-editor">
         <state line="36" column="22" selection-start="756" selection-end="756" vertical-scroll-proportion="0.0">
@@ -460,23 +587,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/views/index.scala.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/conf/routes">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="15" column="45" selection-start="929" selection-end="965" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/conf/application.conf">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="49" column="0" selection-start="1530" selection-end="1530" vertical-scroll-proportion="0.5367647">
-          <folding />
-        </state>
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/views/ranking.scala.html">
@@ -486,25 +597,9 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/models/Resposta.scala">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="34" column="20" selection-start="709" selection-end="709" vertical-scroll-proportion="0.58411217">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/models/Usuario.scala">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="19" column="30" selection-start="365" selection-end="365" vertical-scroll-proportion="0.41911766">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/controllers/Application.scala">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="65" column="42" selection-start="1572" selection-end="1572" vertical-scroll-proportion="0.022058824">
-          <folding />
-        </state>
+        <state line="19" column="30" selection-start="365" selection-end="365" vertical-scroll-proportion="0.41911766" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/conf/evolutions/default/3.sql">
@@ -523,21 +618,56 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/models/QRCode.scala">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="51" column="37" selection-start="1492" selection-end="1492" vertical-scroll-proportion="0.0">
+        <state line="43" column="37" selection-start="1187" selection-end="1187" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/views/formQRCode.scala.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="48" column="101" selection-start="1338" selection-end="1338" vertical-scroll-proportion="-6.25">
+        <state line="49" column="101" selection-start="1405" selection-end="1405" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/conf/evolutions/default/1.sql">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="7" column="17" selection-start="128" selection-end="128" vertical-scroll-proportion="0.15555556">
+        <state line="7" column="17" selection-start="128" selection-end="128" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/controllers/Application.scala">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="40" column="55" selection-start="1075" selection-end="1075" vertical-scroll-proportion="0.0">
+          <folding>
+            <marker date="1372711436000" expanded="true" signature="166:180" placeholder="(...)" />
+            <marker date="1372711436000" expanded="true" signature="412:807" placeholder="(...)" />
+            <marker date="1372711436000" expanded="true" signature="1992:2081" placeholder="{...}" />
+            <marker date="1372711436000" expanded="true" signature="2176:2227" placeholder="{...}" />
+            <marker date="1372711436000" expanded="true" signature="3738:3807" placeholder="{...}" />
+            <marker date="1372711436000" expanded="true" signature="3828:3868" placeholder="/**...*/" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/conf/routes">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="5" column="22" selection-start="201" selection-end="201" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/conf/application.conf">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="49" column="0" selection-start="1526" selection-end="1526" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/models/Resposta.scala">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="44" column="29" selection-start="988" selection-end="988" vertical-scroll-proportion="0.70959264">
           <folding />
         </state>
       </provider>
