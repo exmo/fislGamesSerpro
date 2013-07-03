@@ -14,14 +14,14 @@
 @main("Ranking") {
     <h1>@list.size Participantes(s)</h1>
 
-    <table class="table table-striped table-bordered">
+    <table class="table table-striped table-bordered footable">
         <thead>
         <tr>
-            @header("Nome")
-            @header("E-mail")
-            @header("Telefone")
-            @header("Pontuação")
-            @header("Ações")
+            @footable_header(title = "Nome")
+            @footable_header(title = "E-mail")
+            @footable_header(title = "Telefone")
+            @footable_header(title = "Pontuação")
+            @footable_header(title = "Ações")
         </tr>
         </thead>
         <tbody>

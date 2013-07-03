@@ -2,12 +2,6 @@
 
 @import helper._
 
-@header(title: String) = {
-<th>
-    @title
-</th>
-}
-
 @geraTextoQrcode(q:QRCode) = {SERPRO#@q.tipo#@q.id#@q.textoQrCode}
 <script>
     function gerarQRCode() {
@@ -19,31 +13,31 @@
 @main("Formulário de QR Code's") {
     <h1>@list.size QRCode(s)</h1>
 
-    <table class="table table-striped table-bordered">
+    <table class="table table-striped table-bordered footable">
         <thead>
         <tr>
-            @header("#")
-            @header("Texto")
-            @header("Tipo")
-            @header("Resposta")
-            @header("Alternativa 1")
-            @header("Alternativa 2")
-            @header("Alternativa 3")
-            @header("Pontuação")
-            @header("QR-Code")
-            @header("Ações")
+            @footable_header(title = "#", expand = true)
+            @footable_header(title = "Texto", sort = true)
+            @footable_header(title = "Tipo", sort = true)
+            @footable_header(title = "Resposta", hideDevices = "phone")
+            @footable_header(title = "Alternativa 1", hideDevices = "phone,tablet")
+            @footable_header(title = "Alternativa 2", hideDevices = "phone,tablet")
+            @footable_header(title = "Alternativa 3", hideDevices = "phone,tablet")
+            @footable_header(title = "Pontuação", hideDevices = "phone", sort = true)
+            @footable_header(title = "QR-Code")
+            @footable_header(title = "Ações")
         </tr>
         </thead>
         <tbody>
         @list.map{ q =>
             <tr>
-                <td>@q.id</td>
+                <td data-class="expand">@q.id</td>
                 <td>@q.texto</td>
                 <td>@q.tipo</td>
-                <td>@q.resposta</td>
-                <td>@q.alternativa1</td>
-                <td>@q.alternativa2</td>
-                <td>@q.alternativa3</td>
+                <td data-hide="phone,tablet">@q.resposta</td>
+                <td data-hide="phone,tablet">@q.alternativa1</td>
+                <td data-hide="phone,tablet">@q.alternativa2</td>
+                <td data-hide="phone,tablet">@q.alternativa3</td>
                 <td>@q.pontuacao</td>
                 <td>
                     <form name="qrForm@q.id.get" action="/qrcode/render" method="post">
