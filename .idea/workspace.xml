@@ -2,13 +2,13 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="1c4402a2-2281-4fa9-981a-f9d6be7c082e" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/conf/application.conf" afterPath="$PROJECT_DIR$/conf/application.conf" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/todasrespostas.scala.html" afterPath="$PROJECT_DIR$/app/views/todasrespostas.scala.html" />
     </list>
     <ignored path="fislGamesSerpro.iws" />
     <ignored path=".idea/workspace.xml" />
-    <file path="/routes" changelist="1c4402a2-2281-4fa9-981a-f9d6be7c082e" time="1372365041579" ignored="false" />
-    <file path="/Application.scala" changelist="1c4402a2-2281-4fa9-981a-f9d6be7c082e" time="1372852428030" ignored="false" />
-    <file path="/formQRCode.scala.html" changelist="1c4402a2-2281-4fa9-981a-f9d6be7c082e" time="1372714320084" ignored="false" />
+    <file path="/routes" changelist="1c4402a2-2281-4fa9-981a-f9d6be7c082e" time="1372857677994" ignored="false" />
+    <file path="/Application.scala" changelist="1c4402a2-2281-4fa9-981a-f9d6be7c082e" time="1372859445290" ignored="false" />
+    <file path="/formQRCode.scala.html" changelist="1c4402a2-2281-4fa9-981a-f9d6be7c082e" time="1372859890347" ignored="false" />
     <file path="/a.dummy" changelist="1c4402a2-2281-4fa9-981a-f9d6be7c082e" time="1372195113233" ignored="false" />
     <file path="/QRCode.scala" changelist="1c4402a2-2281-4fa9-981a-f9d6be7c082e" time="1372433354226" ignored="false" />
     <file path="/1.sql" changelist="1c4402a2-2281-4fa9-981a-f9d6be7c082e" time="1372427322329" ignored="false" />
@@ -21,7 +21,7 @@
     <file path="/2.sql" changelist="1c4402a2-2281-4fa9-981a-f9d6be7c082e" time="1372365324642" ignored="false" />
     <file path="/ranking.scala.html" changelist="1c4402a2-2281-4fa9-981a-f9d6be7c082e" time="1372364706550" ignored="false" />
     <file path="$PROJECT_DIR$/target/scala-2.10/src_managed/main/views/html/ranking.template.scala" changelist="1c4402a2-2281-4fa9-981a-f9d6be7c082e" time="1371498874854" ignored="false" />
-    <file path="/Resposta.scala" changelist="1c4402a2-2281-4fa9-981a-f9d6be7c082e" time="1372712692686" ignored="false" />
+    <file path="/Resposta.scala" changelist="1c4402a2-2281-4fa9-981a-f9d6be7c082e" time="1372858483752" ignored="false" />
     <file path="/3.sql" changelist="1c4402a2-2281-4fa9-981a-f9d6be7c082e" time="1372185764181" ignored="false" />
     <file path="/Dummy.txt" changelist="1c4402a2-2281-4fa9-981a-f9d6be7c082e" time="1372681891065" ignored="false" />
     <file path="/phonegap.scala.html" changelist="1c4402a2-2281-4fa9-981a-f9d6be7c082e" time="1371570089734" ignored="false" />
@@ -30,6 +30,7 @@
     <file path="/Build.scala" changelist="1c4402a2-2281-4fa9-981a-f9d6be7c082e" time="1372183043445" ignored="false" />
     <file path="/4.sql" changelist="1c4402a2-2281-4fa9-981a-f9d6be7c082e" time="1372421060018" ignored="false" />
     <file path="/application.conf" changelist="1c4402a2-2281-4fa9-981a-f9d6be7c082e" time="1372850354198" ignored="false" />
+    <file path="/todasrespostas.scala.html" changelist="1c4402a2-2281-4fa9-981a-f9d6be7c082e" time="1372860631835" ignored="false" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -93,7 +94,27 @@
       <file leaf-file-name="Application.scala" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/controllers/Application.scala">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="108" column="55" selection-start="3519" selection-end="3519" vertical-scroll-proportion="0.0">
+            <state line="91" column="36" selection-start="2782" selection-end="2782" vertical-scroll-proportion="0.0">
+              <folding>
+                <element signature="e#21#38#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="formQRCode.scala.html" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/views/formQRCode.scala.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="60" column="24" selection-start="1879" selection-end="1879" vertical-scroll-proportion="-11.875">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Usuario.scala" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/models/Usuario.scala">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="19" column="30" selection-start="365" selection-end="365" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -102,16 +123,7 @@
       <file leaf-file-name="Resposta.scala" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/models/Resposta.scala">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="88" column="70" selection-start="2793" selection-end="2793" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="1.sql" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/conf/evolutions/default/1.sql">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="7" column="17" selection-start="128" selection-end="128" vertical-scroll-proportion="0.0">
+            <state line="110" column="97" selection-start="3802" selection-end="3802" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -120,7 +132,25 @@
       <file leaf-file-name="resposta.scala.html" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/views/resposta.scala.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="33" column="199" selection-start="949" selection-end="1118" vertical-scroll-proportion="-20.625">
+            <state line="43" column="7" selection-start="0" selection-end="1242" vertical-scroll-proportion="-26.875">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="ranking.scala.html" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/views/ranking.scala.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="34" column="88" selection-start="783" selection-end="851" vertical-scroll-proportion="-19.666666">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="todasrespostas.scala.html" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/app/views/todasrespostas.scala.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="16" column="0" selection-start="278" selection-end="278" vertical-scroll-proportion="0.33613446">
               <folding />
             </state>
           </provider>
@@ -129,25 +159,16 @@
       <file leaf-file-name="routes" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/conf/routes">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="5" column="22" selection-start="201" selection-end="201" vertical-scroll-proportion="0.0">
+            <state line="13" column="48" selection-start="859" selection-end="859" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="application.conf" pinned="false" current="true" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/conf/application.conf">
+      <file leaf-file-name="main.scala.html" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/views/main.scala.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="55" column="0" selection-start="1705" selection-end="1705" vertical-scroll-proportion="0.7093023">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="formQRCode.scala.html" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/views/formQRCode.scala.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="58" column="90" selection-start="1879" selection-end="1879" vertical-scroll-proportion="-18.125">
+            <state line="37" column="53" selection-start="1568" selection-end="1568" vertical-scroll-proportion="-10.666667">
               <folding />
             </state>
           </provider>
@@ -156,7 +177,7 @@
       <file leaf-file-name="QRCode.scala" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/models/QRCode.scala">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="43" column="37" selection-start="1187" selection-end="1187" vertical-scroll-proportion="0.0">
+            <state line="40" column="39" selection-start="1051" selection-end="1057" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -180,7 +201,6 @@
   <component name="IdeDocumentHistory">
     <option name="changedFiles">
       <list>
-        <option value="$PROJECT_DIR$/app/models/AnormExtension.scala" />
         <option value="$PROJECT_DIR$/app/views/main.scala.html" />
         <option value="$PROJECT_DIR$/conf/evolutions/default/3.sql" />
         <option value="$PROJECT_DIR$/project/Build.scala" />
@@ -190,12 +210,13 @@
         <option value="$PROJECT_DIR$/conf/evolutions/default/4.sql" />
         <option value="$PROJECT_DIR$/app/models/QRCode.scala" />
         <option value="$PROJECT_DIR$/conf/evolutions/default/1.sql" />
-        <option value="$PROJECT_DIR$/conf/routes" />
         <option value="$PROJECT_DIR$/app/views/resposta.scala.html" />
+        <option value="$PROJECT_DIR$/conf/application.conf" />
+        <option value="$PROJECT_DIR$/conf/routes" />
+        <option value="$PROJECT_DIR$/app/controllers/Application.scala" />
         <option value="$PROJECT_DIR$/app/models/Resposta.scala" />
         <option value="$PROJECT_DIR$/app/views/formQRCode.scala.html" />
-        <option value="$PROJECT_DIR$/app/controllers/Application.scala" />
-        <option value="$PROJECT_DIR$/conf/application.conf" />
+        <option value="$PROJECT_DIR$/app/views/todasrespostas.scala.html" />
       </list>
     </option>
   </component>
@@ -512,20 +533,6 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/app/models/QRCode.scala">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="51" column="37" selection-start="1492" selection-end="1492" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/views/main.scala.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="37" column="53" selection-start="1638" selection-end="1638" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/project/Build.scala">
       <provider selected="true" editor-type-id="text-editor">
         <state line="13" column="46" selection-start="312" selection-end="312" vertical-scroll-proportion="0.0" />
@@ -534,18 +541,6 @@
     <entry file="file://$PROJECT_DIR$/app/views/index.scala.html">
       <provider selected="true" editor-type-id="text-editor">
         <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/views/ranking.scala.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="32" column="29" selection-start="748" selection-end="748" vertical-scroll-proportion="0.73170733">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/models/Usuario.scala">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="19" column="30" selection-start="365" selection-end="365" vertical-scroll-proportion="0.41911766" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/conf/evolutions/default/3.sql">
@@ -562,34 +557,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/models/QRCode.scala">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="43" column="37" selection-start="1187" selection-end="1187" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/conf/routes">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="5" column="22" selection-start="201" selection-end="201" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/views/resposta.scala.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="33" column="199" selection-start="949" selection-end="1118" vertical-scroll-proportion="-20.625">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/views/formQRCode.scala.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="58" column="90" selection-start="1879" selection-end="1879" vertical-scroll-proportion="-18.125">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/conf/evolutions/default/1.sql">
       <provider selected="true" editor-type-id="text-editor">
         <state line="7" column="17" selection-start="128" selection-end="128" vertical-scroll-proportion="0.0">
@@ -597,23 +564,81 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/conf/application.conf">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="55" column="0" selection-start="1705" selection-end="1705" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/views/resposta.scala.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="43" column="7" selection-start="0" selection-end="1242" vertical-scroll-proportion="-26.875">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/models/QRCode.scala">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="40" column="39" selection-start="1051" selection-end="1057" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/conf/routes">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="13" column="48" selection-start="859" selection-end="859" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/models/Usuario.scala">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="19" column="30" selection-start="365" selection-end="365" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/views/ranking.scala.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="34" column="88" selection-start="783" selection-end="851" vertical-scroll-proportion="-19.666666">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/views/formQRCode.scala.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="60" column="24" selection-start="1879" selection-end="1879" vertical-scroll-proportion="-11.875">
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/app/models/Resposta.scala">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="88" column="70" selection-start="2793" selection-end="2793" vertical-scroll-proportion="0.0">
+        <state line="110" column="97" selection-start="3802" selection-end="3802" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/controllers/Application.scala">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="108" column="55" selection-start="3519" selection-end="3519" vertical-scroll-proportion="0.0">
+        <state line="91" column="36" selection-start="2782" selection-end="2782" vertical-scroll-proportion="0.0">
+          <folding>
+            <element signature="e#21#38#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/views/main.scala.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="37" column="53" selection-start="1568" selection-end="1568" vertical-scroll-proportion="-10.666667">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/conf/application.conf">
+    <entry file="file://$PROJECT_DIR$/app/views/todasrespostas.scala.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="55" column="0" selection-start="1705" selection-end="1705" vertical-scroll-proportion="0.7093023">
+        <state line="16" column="0" selection-start="278" selection-end="278" vertical-scroll-proportion="0.33613446">
           <folding />
         </state>
       </provider>

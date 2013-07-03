@@ -11,6 +11,7 @@ POST    /qrcode/gerar               controllers.Application.gerarQRCode
 POST    /qrcode/:id/delete          controllers.Application.deleteQRCode(id: Long)
 GET     /ranking                    controllers.Application.ranking
 GET     /respostas/:email           controllers.Application.respostas(email: String)
+GET     /todasrespostas/:id         controllers.Application.todasrespostas(id: Long)
 GET     /respostacorreta/:id/:email controllers.Application.considerarRespostaCorretaDesafio(id: Long, email: String)
 
 # ROTAS DISPONIVEIS PARA ACESSO REST VIA APP PHONEGAP, RETORNANDO JSONP
