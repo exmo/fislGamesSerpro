@@ -1,4 +1,4 @@
-@(expand: Boolean = false, sort: Boolean = false, hideDevices: String = "", title: String)
+@(title: String,expand: Boolean = false, sort: Boolean = false, hideDevices: String = "" )
 <th @if(!sort){data-sort-ignore="true"} @if(expand){data-class="expand"} @if(hideDevices!=""){data-hide="@hideDevices"}>
     @title
 </th>

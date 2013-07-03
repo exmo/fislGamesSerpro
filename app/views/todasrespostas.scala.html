@@ -16,14 +16,14 @@
 <h2 class="hero-unit">@pergunta</h2>
 
 
-<table class="table table-striped table-bordered">
+<table class="table table-striped table-bordered footable">
     <thead>
     <tr>
-        @header("E-mail")
-        @header("Resposta Usuário")
-        @header("Pontos")
-        @header("Data/Hora")
-        @header("Ações")
+        @footable_header(title="E-mail", expand=true)
+        @footable_header("Resposta Usuário")
+        @footable_header("Pontos", sort=true, hideDevices="phone")
+        @footable_header("Data/Hora", sort=true, hideDevices="phone,tablet")
+        @footable_header("Ações")
     </tr>
     </thead>
     <tbody>

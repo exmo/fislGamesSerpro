@@ -17,10 +17,10 @@
     <table class="table table-striped table-bordered footable">
         <thead>
         <tr>
-            @footable_header(title = "Nome")
-            @footable_header(title = "E-mail")
-            @footable_header(title = "Telefone")
-            @footable_header(title = "Pontuação")
+            @footable_header(title = "Nome", sort=true)
+            @footable_header(title = "E-mail", sort=true)
+            @footable_header(title = "Telefone",hideDevices="phone")
+            @footable_header(title = "Pontuação", sort=true)
             @footable_header(title = "Ações")
         </tr>
         </thead>
