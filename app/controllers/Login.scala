@@ -32,7 +32,7 @@ object Login extends Controller {
   )
 
   def check(username: String, password: String) = {
-    (username == "admin" && password == "1234")
+    (username == "admin" && password == "bahia88")
   }
 
   def login = Action { implicit request =>

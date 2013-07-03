@@ -2,11 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="1c4402a2-2281-4fa9-981a-f9d6be7c082e" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/conf/application.conf" afterPath="$PROJECT_DIR$/conf/application.conf" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/footable_header.scala.html" afterPath="$PROJECT_DIR$/app/views/footable_header.scala.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/ranking.scala.html" afterPath="$PROJECT_DIR$/app/views/ranking.scala.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/todasrespostas.scala.html" afterPath="$PROJECT_DIR$/app/views/todasrespostas.scala.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/controllers/Login.scala" afterPath="$PROJECT_DIR$/app/controllers/Login.scala" />
     </list>
     <ignored path="fislGamesSerpro.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -35,6 +31,7 @@
     <file path="/4.sql" changelist="1c4402a2-2281-4fa9-981a-f9d6be7c082e" time="1372421060018" ignored="false" />
     <file path="/application.conf" changelist="1c4402a2-2281-4fa9-981a-f9d6be7c082e" time="1372850354198" ignored="false" />
     <file path="/todasrespostas.scala.html" changelist="1c4402a2-2281-4fa9-981a-f9d6be7c082e" time="1372863146182" ignored="false" />
+    <file path="/Login.scala" changelist="1c4402a2-2281-4fa9-981a-f9d6be7c082e" time="1372863418902" ignored="false" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -124,6 +121,15 @@
           </provider>
         </entry>
       </file>
+      <file leaf-file-name="Login.scala" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/app/controllers/Login.scala">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="34" column="50" selection-start="691" selection-end="691" vertical-scroll-proportion="0.35952064">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
       <file leaf-file-name="Resposta.scala" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/models/Resposta.scala">
           <provider selected="true" editor-type-id="text-editor">
@@ -133,10 +139,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="ranking.scala.html" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="ranking.scala.html" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/views/ranking.scala.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="19" column="54" selection-start="380" selection-end="380" vertical-scroll-proportion="0.3397524">
+            <state line="19" column="54" selection-start="380" selection-end="380" vertical-scroll-proportion="-10.291667">
               <folding />
             </state>
           </provider>
@@ -169,15 +175,6 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="routes" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/conf/routes">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="13" column="48" selection-start="859" selection-end="859" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="main.scala.html" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/views/main.scala.html">
           <provider selected="true" editor-type-id="text-editor">
@@ -205,7 +202,6 @@
   <component name="IdeDocumentHistory">
     <option name="changedFiles">
       <list>
-        <option value="$PROJECT_DIR$/conf/evolutions/default/3.sql" />
         <option value="$PROJECT_DIR$/project/Build.scala" />
         <option value="$PROJECT_DIR$/app/models/Usuario.scala" />
         <option value="$PROJECT_DIR$/conf/evolutions/default/2.sql" />
@@ -221,6 +217,7 @@
         <option value="$PROJECT_DIR$/app/views/footable_header.scala.html" />
         <option value="$PROJECT_DIR$/app/views/todasrespostas.scala.html" />
         <option value="$PROJECT_DIR$/app/views/ranking.scala.html" />
+        <option value="$PROJECT_DIR$/app/controllers/Login.scala" />
       </list>
     </option>
   </component>
@@ -537,11 +534,6 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/app/views/index.scala.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" />
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/conf/evolutions/default/3.sql">
       <provider selected="true" editor-type-id="text-editor">
         <state line="9" column="49" selection-start="265" selection-end="265" vertical-scroll-proportion="0.1985294">
@@ -580,13 +572,6 @@
     <entry file="file://$PROJECT_DIR$/conf/routes">
       <provider selected="true" editor-type-id="text-editor">
         <state line="13" column="48" selection-start="859" selection-end="859" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/models/Usuario.scala">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="19" column="30" selection-start="365" selection-end="365" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
@@ -644,7 +629,21 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/views/ranking.scala.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="19" column="54" selection-start="380" selection-end="380" vertical-scroll-proportion="0.3397524">
+        <state line="19" column="54" selection-start="380" selection-end="380" vertical-scroll-proportion="-10.291667">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/models/Usuario.scala">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="19" column="30" selection-start="365" selection-end="365" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/controllers/Login.scala">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="34" column="50" selection-start="691" selection-end="691" vertical-scroll-proportion="0.35952064">
           <folding />
         </state>
       </provider>
