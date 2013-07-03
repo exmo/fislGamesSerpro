@@ -100,5 +100,20 @@ object Resposta {
   def obtemPontuacaoUsuario(email: String) = DB.withConnection { implicit c =>
     SQL("select coalesce(sum(pontuacao),0) as pontuacao from resposta where email = {email}").on('email -> email).as(scalar[BigDecimal].single)
 
-  }  
+  }
+
+
+  val todasResps = {
+      get[Pk[Long]]("idQrCode")~
+      get[Pk[String]]("email")~
+      get[String]("resposta")~
+      get[Long]("pontuacao")~
+      get[String]("ultima_atualizacao") map {
+      case idQrCode~email~resposta~pontuacao~ultima_atualizacao => Seq(idQrCode,email,resposta,pontuacao,formataDataHora(ultima_atualizacao))
+    }
+  }
+
+  def obtemTodasRespostas(id: Long) : List[Seq[Any]] = DB.withConnection { implicit c =>
+    SQL("select idQrCode,email,resposta,pontuacao,ultima_atualizacao from resposta where idQrCode={id}").on('id -> id).as(todasResps *)
+  }
 }

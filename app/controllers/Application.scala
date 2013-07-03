@@ -77,6 +77,18 @@ object Application extends Controller with Secured {
     Ok(views.html.resposta(Resposta.obtemRespostasUsuario(email), nomeUsuario, email, pontos))    
   }
 
+  def todasrespostas(id: Long) = withAuth { user => implicit request =>
+
+    var pergunta = ""
+    var respostaCorreta = ""
+
+    QRCode.findById(id).map { qrcode =>
+      pergunta = qrcode.texto
+      respostaCorreta = qrcode.resposta
+    }
+    Ok(views.html.todasrespostas(Resposta.obtemTodasRespostas(id),id,pergunta,respostaCorreta))
+  }
+
   // -- REST/JSONP
 
   def criarUsuario(email: String, nome: String, telefone: String, callback: String) = Action {

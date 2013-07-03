@@ -53,8 +53,12 @@
                     </form>
                 </td>
                 <td>
+                    <p>
+                        <a href="/todasrespostas/@q.id" class="btn btn-info" />Respostas</a>
+                    </p>
+
                     @form(routes.Application.deleteQRCode(q.id.get)) {
-                    <input type="submit" value="Delete" class="btn btn-danger" onclick="return confirm('Tem certeza?');" />
+                        <input type="submit" value="   Delete    " class="btn btn-danger" onclick="return confirm('Tem certeza?');" />
                     }
                 </td>
                 <script>
