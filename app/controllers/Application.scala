@@ -105,7 +105,10 @@ object Application extends Controller with Secured {
     }.getOrElse {
       QRCode.findById(id).map { desafio =>
         var pontos = 0
-        if (desafio.resposta == resposta) {
+        var respostaCorreta = desafio.resposta.toUpperCase.trim
+        var respostaUsuario = resposta.toUpperCase.trim
+
+        if (respostaCorreta == respostaUsuario) {
           pontos = desafio.pontuacao
           json = toJson(
             Map("status" -> "OK", "codRet" -> "OK", "msgRet" -> "Resposta correta!")
