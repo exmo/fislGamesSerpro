@@ -103,6 +103,7 @@ object Resposta {
   }
 
 
+
   val todasResps = {
       get[Pk[Long]]("idQrCode")~
       get[Pk[String]]("email")~

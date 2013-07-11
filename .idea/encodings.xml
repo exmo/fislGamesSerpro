@@ -1,5 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
-  <component name="Encoding" useUTFGuessing="true" native2AsciiForPropertiesFiles="false" />
+  <component name="Encoding" useUTFGuessing="true" native2AsciiForPropertiesFiles="false">
+    <file url="file://$PROJECT_DIR$/test/controllers/ApplicationSpec.scala" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/test/controllers/LoginSpec.scala" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/test/controllers/QRCodesSpec.scala" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/test/integration" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/test/models/QRCodeSpec.scala" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/test/models/RespostaSpec.scala" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/test/models/UsuarioSpec.scala" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/test/views/LoginFormSpec.scala" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/test/views/LoginViewSpec.scala" charset="UTF-8" />
+  </component>
 </project>
 

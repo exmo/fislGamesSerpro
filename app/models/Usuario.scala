@@ -39,9 +39,9 @@ object Usuario {
     }
   }
 
-  def delete(email: String) {
+  def delete(email: String): Long = {
     DB.withConnection { implicit c =>
-      SQL("delete from usuario where email = {email}").on('email -> email).executeUpdate()
+      return SQL("delete from usuario where email = {email}").on('email -> email).executeUpdate()
     }
   }
 

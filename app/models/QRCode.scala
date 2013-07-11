@@ -5,6 +5,7 @@ import anorm.SqlParser._
 import play.api.db.DB
 import play.api.Play.current
 import util.Random
+import java.math.BigInteger
 
 case class QRCode (
   val id: Pk[Long] = NotAssigned,
@@ -52,8 +53,7 @@ object QRCode {
         return textoQrCode
   }
 
-
-  def create(texto: String, tipo: String, resposta:String, alternativa1:String, alternativa2:String, alternativa3:String, pontuacao:Int) {
+  def create(texto: String, tipo: String, resposta:String, alternativa1:String, alternativa2:String, alternativa3:String, pontuacao:Int): Long = {
     val textoQrCode = criaTextoQrCode(texto,tipo,resposta,alternativa1,alternativa2,alternativa3,pontuacao);
     DB.withConnection { implicit c =>
       SQL("insert into qrcode (texto,tipo,resposta,alternativa1,alternativa2,alternativa3,textoQrCode,pontuacao) values ({texto},{tipo},{resposta},{alternativa1},{alternativa2},{alternativa3},{textoQrCode},{pontuacao})").on(
@@ -65,13 +65,16 @@ object QRCode {
         'alternativa3 -> alternativa3,
         'textoQrCode -> textoQrCode,
         'pontuacao -> pontuacao
-      ).executeUpdate()
+      ).executeInsert()
+    } match {
+      case Some(insertedId) => return insertedId
+      case None  => return -1
     }
   }
 
-  def delete(id: Long) {
+  def delete(id: Long): Long = {
     DB.withConnection { implicit c =>
-      SQL("delete from qrcode where id = {id}").on('id -> id).executeUpdate()
+      return SQL("delete from qrcode where id = {id}").on('id -> id).executeUpdate()
     }
   }
 

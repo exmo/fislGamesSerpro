@@ -3,20 +3,20 @@
 # ~~~~
 
 # ROTAS DO SERVIDOR, DISPONIVEIS NA APLICACAO WEB, ACESSIVEIS APEANS PARA USUARIO ADMIN
-GET     /                           controllers.Application.formQRCode
-GET     /qrcode/form                controllers.Application.formQRCode
-GET     /qrcode/render/:texto       controllers.Application.renderQRCode(texto: String, size:Int ?= 480)
-POST    /qrcode/render              controllers.Application.renderQRCodePost
-POST    /qrcode/gerar               controllers.Application.gerarQRCode
-POST    /qrcode/:id/delete          controllers.Application.deleteQRCode(id: Long)
-GET     /ranking                    controllers.Application.ranking
-GET     /respostas/:email           controllers.Application.respostas(email: String)
-GET     /todasrespostas/:id         controllers.Application.todasrespostas(id: Long)
-GET     /respostacorreta/:id/:email controllers.Application.considerarRespostaCorretaDesafio(id: Long, email: String)
+GET     /                           controllers.Application.index
+GET     /qrcode/form                controllers.QRCodes.formQRCode
+GET     /qrcode/render/:texto       controllers.QRCodes.renderQRCode(texto: String, size:Int ?= 480)
+POST    /qrcode/render              controllers.QRCodes.renderQRCodePost
+POST    /qrcode/gerar               controllers.QRCodes.gerarQRCode
+POST    /qrcode/:id/delete          controllers.QRCodes.deleteQRCode(id: Long)
+GET     /ranking                    controllers.Desafios.ranking
+GET     /respostas/:email           controllers.Desafios.respostas(email: String)
+GET     /todasrespostas/:id         controllers.Desafios.todasRespostas(id: Long)
+GET     /respostacorreta/:id/:email controllers.Desafios.considerarRespostaCorreta(id: Long, email: String)
 
 # ROTAS DISPONIVEIS PARA ACESSO REST VIA APP PHONEGAP, RETORNANDO JSONP
-GET     /usuario/criar/:email/:nome/:telefone     controllers.Application.criarUsuario(email: String, nome: String, telefone: String, callback: String)
-GET     /desafio/:id/:email/:resposta   controllers.Application.responderDesafio(id: Long, email: String, resposta: String, callback: String)
+GET     /usuario/criar/:email/:nome/:telefone     controllers.Users.criarUsuario(email: String, nome: String, telefone: String, callback: String)
+GET     /desafio/:id/:email/:resposta   controllers.Desafios.responder(id: Long, email: String, resposta: String, callback: String)
 
 # Authentication
 GET     /login                      controllers.Login.login

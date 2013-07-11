@@ -47,7 +47,7 @@
                     </form>
                 </td>
                 <td>
-                    @form(routes.Application.deleteQRCode(q.id.get)) {
+                    @form(routes.QRCodes.deleteQRCode(q.id.get)) {
                         <input type="submit" value="   Delete    " class="btn btn-danger" onclick="return confirm('Tem certeza?');" />
                     }
                     @if(q.tipo.startsWith("DESAFIO")){
@@ -68,7 +68,7 @@
         </tbody>
     </table>
 
-    @form(routes.Application.gerarQRCode, 'class -> "form-horizontal") {
+    @form(routes.QRCodes.gerarQRCode, 'class -> "form-horizontal") {
         <fieldset>
             <legend><strong>Incluir QR-Code</strong></legend>
                     
