@@ -2,12 +2,12 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="1c4402a2-2281-4fa9-981a-f9d6be7c082e" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/test/integration/IntegrationSpec.scala" afterPath="$PROJECT_DIR$/test/integration/IntegrationSpec.scala" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/test/controllers/LoginSpec.scala" afterPath="$PROJECT_DIR$/test/controllers/LoginSpec.scala" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/test/controllers/QRCodesSpec.scala" afterPath="$PROJECT_DIR$/test/controllers/QRCodesSpec.scala" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/conf/application.conf" afterPath="$PROJECT_DIR$/conf/application.conf" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/encodings.xml" afterPath="$PROJECT_DIR$/.idea/encodings.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gitignore" afterPath="$PROJECT_DIR$/.gitignore" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea_modules/fislGamesSerpro-build.iml" afterPath="$PROJECT_DIR$/.idea_modules/fislGamesSerpro-build.iml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea_modules/fislGamesSerpro.iml" afterPath="$PROJECT_DIR$/.idea_modules/fislGamesSerpro.iml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/misc.xml" afterPath="$PROJECT_DIR$/.idea/misc.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/modules.xml" afterPath="$PROJECT_DIR$/.idea/modules.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="fislGamesSerpro.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -27,7 +27,7 @@
     <file path="$PROJECT_DIR$/target/scala-2.10/src_managed/main/views/html/ranking.template.scala" changelist="1c4402a2-2281-4fa9-981a-f9d6be7c082e" time="1371498874854" ignored="false" />
     <file path="/Resposta.scala" changelist="1c4402a2-2281-4fa9-981a-f9d6be7c082e" time="1372858483752" ignored="false" />
     <file path="/3.sql" changelist="1c4402a2-2281-4fa9-981a-f9d6be7c082e" time="1372185764181" ignored="false" />
-    <file path="/Dummy.txt" changelist="1c4402a2-2281-4fa9-981a-f9d6be7c082e" time="1373638881470" ignored="false" />
+    <file path="/Dummy.txt" changelist="1c4402a2-2281-4fa9-981a-f9d6be7c082e" time="1373641121924" ignored="false" />
     <file path="/phonegap.scala.html" changelist="1c4402a2-2281-4fa9-981a-f9d6be7c082e" time="1371570089734" ignored="false" />
     <file path="/jqm.scala.html" changelist="1c4402a2-2281-4fa9-981a-f9d6be7c082e" time="1371568419581" ignored="false" />
     <file path="/resposta.scala.html" changelist="1c4402a2-2281-4fa9-981a-f9d6be7c082e" time="1372712824402" ignored="false" />
@@ -181,7 +181,7 @@
       <file leaf-file-name="IntegrationSpec.scala" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/test/integration/IntegrationSpec.scala">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="26" column="8" selection-start="664" selection-end="664" vertical-scroll-proportion="1.2749141">
+            <state line="14" column="1" selection-start="367" selection-end="367" vertical-scroll-proportion="0.121475056">
               <folding>
                 <element signature="e#21#48#0" expanded="true" />
               </folding>
@@ -261,7 +261,7 @@
     <ConfirmationsSetting value="0" id="Remove" />
   </component>
   <component name="ProjectReloadState">
-    <option name="STATE" value="0" />
+    <option name="STATE" value="2" />
   </component>
   <component name="ProjectView">
     <navigator currentView="ProjectPane" proportions="" version="1" splitterProportion="0.5">
@@ -276,28 +276,6 @@
       <sortByType />
     </navigator>
     <panes>
-      <pane id="PackagesPane">
-        <subPane>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="fislGamesSerpro" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PackageViewProjectNode" />
-            </PATH_ELEMENT>
-          </PATH>
-        </subPane>
-      </pane>
-      <pane id="Scope">
-        <subPane subId="Default" />
-        <subPane subId="Project Files" />
-        <subPane subId="All">
-          <PATH>
-            <PATH_ELEMENT USER_OBJECT="Root">
-              <option name="myItemId" value="" />
-              <option name="myItemType" value="" />
-            </PATH_ELEMENT>
-          </PATH>
-        </subPane>
-      </pane>
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -508,21 +486,43 @@
           </PATH>
         </subPane>
       </pane>
+      <pane id="Scope">
+        <subPane subId="Default" />
+        <subPane subId="Project Files" />
+        <subPane subId="All">
+          <PATH>
+            <PATH_ELEMENT USER_OBJECT="Root">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+          </PATH>
+        </subPane>
+      </pane>
+      <pane id="PackagesPane">
+        <subPane>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="fislGamesSerpro" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PackageViewProjectNode" />
+            </PATH_ELEMENT>
+          </PATH>
+        </subPane>
+      </pane>
     </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="FileHistory.git4idea.history.GitHistoryProvider_flatWidth0" value="176" />
     <property name="FileHistory.git4idea.history.GitHistoryProvider_flatWidth1" value="177" />
     <property name="options.splitter.main.proportions" value="0.3" />
-    <property name="FileHistory.git4idea.history.GitHistoryProvider_treeWidth0" value="176" />
-    <property name="FileHistory.git4idea.history.GitHistoryProvider_flatOrder1" value="1" />
-    <property name="MemberChooser.sorted" value="false" />
     <property name="recentsLimit" value="5" />
+    <property name="MemberChooser.sorted" value="false" />
+    <property name="FileHistory.git4idea.history.GitHistoryProvider_flatOrder1" value="1" />
+    <property name="FileHistory.git4idea.history.GitHistoryProvider_treeWidth0" value="176" />
     <property name="FileHistory.git4idea.history.GitHistoryProvider_flatOrder0" value="0" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="FileHistory.git4idea.history.GitHistoryProvider_flatWidth2" value="181" />
-    <property name="FileHistory.git4idea.history.GitHistoryProvider_flatWidth3" value="975" />
     <property name="FileHistory.git4idea.history.GitHistoryProvider_treeWidth3" value="975" />
+    <property name="FileHistory.git4idea.history.GitHistoryProvider_flatWidth3" value="975" />
     <property name="FileHistory.git4idea.history.GitHistoryProvider_treeWidth2" value="181" />
     <property name="FileHistory.git4idea.history.GitHistoryProvider_treeWidth1" value="177" />
     <property name="GoToClass.toSaveIncludeLibraries" value="false" />
@@ -562,6 +562,14 @@
       <option name="PROGRAM_PARAMETERS" />
       <method />
     </configuration>
+    <configuration default="true" type="Remote" factoryName="Remote">
+      <option name="USE_SOCKET_TRANSPORT" value="true" />
+      <option name="SERVER_MODE" value="false" />
+      <option name="SHMEM_ADDRESS" value="javadebug" />
+      <option name="HOST" value="localhost" />
+      <option name="PORT" value="5005" />
+      <method />
+    </configuration>
     <configuration default="true" type="Specs2RunConfiguration" factoryName="Specs2">
       <module name="" />
       <setting name="path" value="" />
@@ -575,12 +583,17 @@
       <setting name="showProgressMessages" value="true" />
       <method />
     </configuration>
-    <configuration default="true" type="Remote" factoryName="Remote">
-      <option name="USE_SOCKET_TRANSPORT" value="true" />
-      <option name="SERVER_MODE" value="false" />
-      <option name="SHMEM_ADDRESS" value="javadebug" />
-      <option name="HOST" value="localhost" />
-      <option name="PORT" value="5005" />
+    <configuration default="true" type="Applet" factoryName="Applet">
+      <module name="" />
+      <option name="MAIN_CLASS_NAME" />
+      <option name="HTML_FILE_NAME" />
+      <option name="HTML_USED" value="false" />
+      <option name="WIDTH" value="400" />
+      <option name="HEIGHT" value="300" />
+      <option name="POLICY_FILE" value="$APPLICATION_HOME_DIR$/bin/appletviewer.policy" />
+      <option name="VM_PARAMETERS" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
       <method />
     </configuration>
     <configuration default="true" type="TestNG" factoryName="TestNG">
@@ -608,19 +621,6 @@
       <envs />
       <properties />
       <listeners />
-      <method />
-    </configuration>
-    <configuration default="true" type="Applet" factoryName="Applet">
-      <module name="" />
-      <option name="MAIN_CLASS_NAME" />
-      <option name="HTML_FILE_NAME" />
-      <option name="HTML_USED" value="false" />
-      <option name="WIDTH" value="400" />
-      <option name="HEIGHT" value="300" />
-      <option name="POLICY_FILE" value="$APPLICATION_HOME_DIR$/bin/appletviewer.policy" />
-      <option name="VM_PARAMETERS" />
-      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
-      <option name="ALTERNATIVE_JRE_PATH" />
       <method />
     </configuration>
     <configuration default="true" type="Application" factoryName="Application">
@@ -691,12 +691,11 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="9" y="24" width="1260" height="672" extended-state="0" />
-    <editor active="true" />
+    <editor active="false" />
     <layout>
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="JetGradle" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.32629558" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.0" sideWeight="0.5" order="0" side_tool="true" content_ui="tabs" />
@@ -710,6 +709,7 @@
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.32629558" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="5" side_tool="false" content_ui="combo" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
@@ -782,44 +782,32 @@
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/app/controllers/Login.scala">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="2" column="0" selection-start="21" selection-end="21" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
+        <state line="2" column="0" selection-start="21" selection-end="21" vertical-scroll-proportion="0.0" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/views/login.scala.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="9" column="116" selection-start="164" selection-end="164" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
+        <state line="9" column="116" selection-start="164" selection-end="164" vertical-scroll-proportion="0.0" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/views/main.scala.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="22" column="63" selection-start="830" selection-end="830" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
+        <state line="22" column="63" selection-start="830" selection-end="830" vertical-scroll-proportion="0.0" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/controllers/QRCodes.scala">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="31" column="19" selection-start="798" selection-end="798" vertical-scroll-proportion="0.045643155">
-          <folding />
-        </state>
+        <state line="31" column="19" selection-start="798" selection-end="798" vertical-scroll-proportion="0.045643155" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/conf/application.conf">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="47" column="0" selection-start="1493" selection-end="1643" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
+        <state line="47" column="0" selection-start="1493" selection-end="1643" vertical-scroll-proportion="0.0" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/conf/routes">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="11" column="56" selection-start="681" selection-end="689" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
+        <state line="11" column="56" selection-start="681" selection-end="689" vertical-scroll-proportion="0.0" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/controllers/Application.scala">
@@ -887,7 +875,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/test/integration/IntegrationSpec.scala">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="26" column="8" selection-start="664" selection-end="664" vertical-scroll-proportion="1.2749141">
+        <state line="14" column="1" selection-start="367" selection-end="367" vertical-scroll-proportion="0.121475056">
           <folding>
             <element signature="e#21#48#0" expanded="true" />
           </folding>
