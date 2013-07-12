@@ -26,6 +26,15 @@ class QRCodesSpec extends Specification with WithTestDatabase {
 
     }
 
+    /*
+    "redirecionar para a pagina de login se usuario nao se autenticou" in around {
+
+      val result = controllers.Application.index(FakeRequest())
+
+      status(result) must equalTo(SEE_OTHER)
+      redirectLocation(result) must beSome.which(_ == "/login")
+
+    } */
   }
 
   /*

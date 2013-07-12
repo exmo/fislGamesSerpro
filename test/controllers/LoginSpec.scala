@@ -13,8 +13,8 @@ class LoginSpec extends Specification with WithTestDatabase {
   "Login" should {
 
 
-    "ir para a pagina de login se usuario nao for autenticado" in {
-      running(FakeApplication(additionalConfiguration = inMemoryDatabase())) {
+    "ir para a pagina de login" in {
+      running(FakeApplication()) {
         val result  = route( FakeRequest( GET, "/login")).get
         status(result) must beEqualTo(200)
         contentAsString(result) must contain("Login")

@@ -11,8 +11,8 @@ import org.fluentlenium.core.filter.FilterConstructor._
  * add your integration spec here.
  * An integration test will fire up a whole play application in a real (or headless) browser
  */
-class IntegrationSpec extends Specification {
-
+class IntegrationSpec extends Specification with WithTestDatabase {
+ /*
   "Application" should {
 
     "work from within a browser" in {
@@ -23,5 +23,6 @@ class IntegrationSpec extends Specification {
 
     }
 
-  }
+
+  }   */
 }
