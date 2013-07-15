@@ -17,6 +17,7 @@
         <thead>
         <tr>
             @footable_header(title = "#", expand = true)
+            @footable_header(title = "Evento", hideDevices = "phone")
             @footable_header(title = "Texto", sort = true)
             @footable_header(title = "Tipo", sort = true)
             @footable_header(title = "Resposta", hideDevices = "phone")
@@ -32,6 +33,7 @@
         @list.map{ q =>
             <tr>
                 <td data-class="expand">@q.id</td>
+                <td data-hide="phone,tablet">@q.evento_id</td>
                 <td>@q.texto</td>
                 <td>@q.tipo</td>
                 <td data-hide="phone,tablet">@q.resposta</td>
@@ -43,6 +45,7 @@
                     <form name="qrForm@q.id.get" action="/qrcode/render" method="post">
                     <input type="hidden" id="texto@q.id.get" name="texto" value="@geraTextoQrcode(q)"/>
                     <input type="hidden" name="size" value="320"/>
+                    <input type="hidden" name="id" value="@q.id"/>
                     <div id="qr@q.id" onclick="document.forms['qrForm@q.id'].submit();"></div>
                     </form>
                 </td>
