@@ -75,7 +75,7 @@ object QRCodes extends Controller with Secured {
   }
 
 
-  def renderQRCodeJSON(id: Long) = Action {
+  def renderQRCodeJSON(id: Long, callback: String) = Action {
     var json = toJson(
       Map(
         "status" -> "ERRO",
@@ -86,7 +86,7 @@ object QRCodes extends Controller with Secured {
       json = toJson(q)
     }
 
-    Ok(Jsonp("callback",json))
+    Ok(Jsonp(callback,json))
   }
 
 
