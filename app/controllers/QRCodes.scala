@@ -55,7 +55,14 @@ object QRCodes extends Controller with Secured {
     qrcodeForm.bindFromRequest.fold(
         errors => BadRequest(views.html.formQRCode(QRCode.all(),errors)),
         qrcode => {
-          QRCode.create(qrcode.evento_id,qrcode.texto, qrcode.tipo, qrcode.resposta,qrcode.alternativas,qrcode.pontuacao)
+
+          val id = request.body.asFormUrlEncoded.get("id")(0).toInt
+          if(id != 0) {
+            QRCode.update(id,qrcode.evento_id,qrcode.texto, qrcode.tipo, qrcode.resposta,qrcode.alternativas,qrcode.pontuacao)
+          } else {
+            QRCode.create(qrcode.evento_id,qrcode.texto, qrcode.tipo, qrcode.resposta,qrcode.alternativas,qrcode.pontuacao)
+          }
+
           Redirect(routes.QRCodes.formQRCode)
         }
       )
@@ -71,7 +78,7 @@ object QRCodes extends Controller with Secured {
   }
 
 
-  def renderQRCodeJSON(id: Long) = Action {
+  def renderQRCodeJSON(id: Long, callback: String) = Action {
     var json = toJson(
       Map(
         "status" -> "ERRO",
@@ -82,7 +89,7 @@ object QRCodes extends Controller with Secured {
       json = toJson(q)
     }
 
-    Ok(Jsonp("callback",json))
+    Ok(Jsonp(callback,json))
   }
 
 

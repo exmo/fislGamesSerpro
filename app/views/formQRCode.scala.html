@@ -8,6 +8,7 @@
     }
 </script>
 
+
 @implicitFieldConstructor = @{ FieldConstructor(twitterBootstrapInput.f) }
 
 @main("Formulário de QR Code's") {
@@ -39,10 +40,10 @@
                 <td>@q.pontuacao</td>
                 <td>
                     <form name="qrForm@q.id.get" action="/qrcode/render" method="post">
-                    <input type="hidden" id="texto@q.id.get" name="texto" value="@geraTextoQrcode(q)"/>
-                    <input type="hidden" name="size" value="320"/>
-                    <input type="hidden" name="id" value="@q.id"/>
-                    <div id="qr@q.id" onclick="document.forms['qrForm@q.id'].submit();"></div>
+                        <input type="hidden" id="texto@q.id.get" name="texto" value="@geraTextoQrcode(q)"/>
+                        <input type="hidden" name="size" value="320"/>
+                        <input type="hidden" name="id" value="@q.id"/>
+                        <div id="qr@q.id" onclick="document.forms['qrForm@q.id'].submit();"></div>
                     </form>
                 </td>
                 <td>
@@ -53,7 +54,23 @@
                     <p>
                         <a href="/todasrespostas/@q.id" class="btn btn-info" />Respostas</a>
                     </p>
-                    }                    
+                    }
+                    <script>
+                        function atualizar@q.id () {
+                            $('#texto').val('@q.texto');
+                            $('#tipo').val('@q.tipo');
+                            $('#resposta').val('@q.resposta');
+                            $('#pontuacao').val('@q.pontuacao');
+                            $('#alternativas').val('@q.alternativas');
+                            $('#id').val('@q.id');
+                            preencheDesafioME();
+                            verificaTipo();
+                        }
+                    </script>
+                    <p>
+                        <a href="javascript:atualizar@q.id ()" class="btn btn-info" />  Atualizar  </a>
+                    </p>
+
                 </td>
                 <script>
                     $('#qr@q.id').qrcode({
@@ -69,7 +86,11 @@
 
     @form(routes.QRCodes.gerarQRCode, 'class -> "form-horizontal") {
         <fieldset>
-                <legend><strong>Incluir QR-Code</strong></legend>
+
+            <legend><strong>Incluir QR-Code</strong></legend>
+
+                <input type="hidden" id="id" name="id" value='0'/>
+
 
                 @qrcodeForm.globalError.map { error =>
                 <div class="alert alert-error">
@@ -98,8 +119,9 @@
 
                     </div>
                 </div>
-                <div id="divPontuacao">
-                    @inputText(qrcodeForm("pontuacao"), '_label -> "Pontuação")
+
+                <div id="div_pontuacao">
+                    @inputText(qrcodeForm("pontuacao"), '_label -> "Pontuação", '_value -> "")
                 </div>
 
                 <script>
@@ -109,27 +131,43 @@
                     function verificaTipo(){
                        if($('#tipo').val() == "DESAFIO"){
                            $('#desafio').show();
-                           $('#divPontuacao').show();
                            $('#desafioMultiplaEscolha').hide();
                            $('#alternativas').val("");
                            $('#alternativa').val("");
                            $('#divAlternativas').empty();
-                       }else{
+                           $('#div_pontuacao').show();
+                           $('#desafioMultiplaEscolha').hide();
+                     }else{
                            if($('#tipo').val() == "DESAFIOME"){
                                $('#desafio').show();
                                $('#desafioMultiplaEscolha').show();
-                               $('#divPontuacao').show();
+                               $('#div_pontuacao').show();
                            }else{
                                $('#desafio').hide();
-                               $('#divPontuacao').hide();
                                $('#desafioMultiplaEscolha').hide();
                                $('#alternativas').val("");
                                $('#alternativa').val("");
                                $('#pontuacao').val("");
                                $('#resposta').val("");
                                $('#divAlternativas').empty();
+                               $('#div_pontuacao').hide();
                            }
                        }
+                    }
+
+                    function preencheDesafioME(){
+                        if($('#tipo').val() == "DESAFIOME"){
+                            $('#divAlternativas').empty();
+                            var alternatives =  $('#alternativas').val().split('#');
+                            for(i = 1;i < alternatives.length; i++){
+                                $('<div>').attr('id','divControlGroup'+i).attr('class','control-group').appendTo('#divAlternativas');
+                                $('<label>').attr('class','control-label').attr('for','alternativa'+i).html('Alternativa '+i).appendTo('#divControlGroup'+i);
+                                $('<div>').attr('class','controls').attr('id','divControls'+i).appendTo('#divControlGroup'+i);
+                                $('<textarea>').attr('disabled','true').attr('id','alternativa'+i).html(alternatives[i]).appendTo('#divControls'+i);
+                                $('<span>').attr('class','help-inline').appendTo('#divControls'+i);
+                            }
+                            console.log(alternatives);
+                        }
                     }
 
                     function incluirAlternativa(){
@@ -148,14 +186,15 @@
                     }
 
                     $('#desafio').hide();
-                    $('#divPontuacao').hide();
+                    $('#div_pontuacao').hide();
                     $('#desafioMultiplaEscolha').hide();
                 </script>
 
 
                 <!-- Button -->
                 <div class="form-actions">
-                    <input type="submit" value="Incluir" class="btn btn-primary">
+                    <input type="submit" value="Salvar" class="btn btn-primary">
+                    <input type="submit" value="Limpar" class="btn btn-alert">
                 </div>
         </fieldset>
     }

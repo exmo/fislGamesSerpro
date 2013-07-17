@@ -7,7 +7,7 @@ GET     /                           controllers.Application.index
 GET     /qrcode/form                controllers.QRCodes.formQRCode
 GET     /qrcode/render/             controllers.QRCodes.renderQRCode(size:Int ?= 480)
 POST    /qrcode/render              controllers.QRCodes.renderQRCodePost
-GET     /qrcode/json/:id            controllers.QRCodes.renderQRCodeJSON(id: Long)
+
 POST    /qrcode/gerar               controllers.QRCodes.gerarQRCode
 POST    /qrcode/:id/delete          controllers.QRCodes.deleteQRCode(id: Long)
 GET     /ranking                    controllers.Desafios.ranking
@@ -18,6 +18,7 @@ GET     /respostacorreta/:id/:email controllers.Desafios.considerarRespostaCorre
 # ROTAS DISPONIVEIS PARA ACESSO REST VIA APP PHONEGAP, RETORNANDO JSONP
 GET     /usuario/criar/:email/:nome/:telefone   controllers.Users.criarUsuario(email: String, nome: String, telefone: String, callback: String)
 GET     /desafio/:id/:email/:resposta           controllers.Desafios.responder(id: Long, email: String, resposta: String, callback: String)
+GET     /qrcode/json/:id                        controllers.QRCodes.renderQRCodeJSON(id: Long, callback: String)
 
 # Authentication
 GET     /login                      controllers.Login.login

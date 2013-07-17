@@ -83,6 +83,20 @@ object QRCode {
     }
   }
 
+ def update(id:Int, evento_id: Int, texto: String, tipo: String, resposta:String, alternativas:String, pontuacao:Int): Long = {
+    DB.withConnection { implicit c =>
+      SQL("update qrcode set evento_id={evento_id},texto = {texto},tipo = {tipo}, resposta = {resposta}, alternativas = {alternativas},pontuacao = {pontuacao} where id = {id}").on(
+        'id -> id,
+        'evento_id -> evento_id,
+        'texto -> texto,
+        'tipo -> tipo,
+        'resposta -> resposta,
+        'alternativas -> alternativas,
+        'pontuacao -> pontuacao
+      ).executeUpdate()
+    }
+  }
+
   def delete(id: Long): Long = {
     DB.withConnection { implicit c =>
       return SQL("delete from qrcode where id = {id}").on('id -> id).executeUpdate()
