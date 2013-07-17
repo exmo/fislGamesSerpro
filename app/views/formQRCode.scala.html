@@ -63,7 +63,7 @@
                             $('#pontuacao').val('@q.pontuacao');
                             $('#alternativas').val('@q.alternativas');
                             $('#id').val('@q.id');
-                            preencheDesafioME();
+                            preencheDesafioMEFromBanco();
                             verificaTipo();
                         }
                     </script>
@@ -155,16 +155,12 @@
                        }
                     }
 
-                    function preencheDesafioME(){
+                    function preencheDesafioMEFromBanco(){
                         if($('#tipo').val() == "DESAFIOME"){
                             $('#divAlternativas').empty();
                             var alternatives =  $('#alternativas').val().split('#');
                             for(i = 1;i < alternatives.length; i++){
-                                $('<div>').attr('id','divControlGroup'+i).attr('class','control-group').appendTo('#divAlternativas');
-                                $('<label>').attr('class','control-label').attr('for','alternativa'+i).html('Alternativa '+i).appendTo('#divControlGroup'+i);
-                                $('<div>').attr('class','controls').attr('id','divControls'+i).appendTo('#divControlGroup'+i);
-                                $('<textarea>').attr('disabled','true').attr('id','alternativa'+i).html(alternatives[i]).appendTo('#divControls'+i);
-                                $('<span>').attr('class','help-inline').appendTo('#divControls'+i);
+                                incluiAlternativaNaDivAlternativas(i,alternatives[i]);
                             }
                             console.log(alternatives);
                         }
@@ -172,17 +168,21 @@
 
                     function incluirAlternativa(){
                         if($('#alternativa').val() != ""){
-                            $('<div>').attr('id','divControlGroup'+cont).attr('class','control-group').appendTo('#divAlternativas');
-                            $('<label>').attr('class','control-label').attr('for','alternativa'+cont).html('Alternativa '+cont).appendTo('#divControlGroup'+cont);
-                            $('<div>').attr('class','controls').attr('id','divControls'+cont).appendTo('#divControlGroup'+cont);
-                            $('<textarea>').attr('disabled','true').attr('id','alternativa'+cont).html($('#alternativa').val()).appendTo('#divControls'+cont);
-                            $('<span>').attr('class','help-inline').appendTo('#divControls'+cont);
+                            incluiAlternativaNaDivAlternativas(cont,$('#alternativa').val());
                             $('#alternativas').val($('#alternativas').val()+'#'+$('#alternativa').val());
                             $('#alternativa').val("");
                             cont = cont +1;
                         }else{
                             alert("Você precisa informar um texto para a alternativa!");
                         }
+                    }
+
+                    function incluiAlternativaNaDivAlternativas(i,valor){
+                          $('<div>').attr('id','divControlGroup'+i).attr('class','control-group').appendTo('#divAlternativas');
+                          $('<label>').attr('class','control-label').attr('for','alternativa'+i).html('Alternativa '+i).appendTo('#divControlGroup'+i);
+                          $('<div>').attr('class','controls').attr('id','divControls'+i).appendTo('#divControlGroup'+i);
+                          $('<textarea>').attr('disabled','true').attr('id','alternativa'+i).html(valor).appendTo('#divControls'+i);
+                          $('<span>').attr('class','help-inline').appendTo('#divControls'+i);
                     }
 
                     $('#desafio').hide();
