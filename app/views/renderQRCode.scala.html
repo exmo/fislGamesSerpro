@@ -1,26 +1,12 @@
-@(texto: String, zipado: String, size: Int, id: Int)
+@(zipado: String, size: Int, id: Int)
 
 @main("QR Code") {
     <div class="row">
         <form name="qrForm" action="/qrcode/render" method="post">
-            <input type="hidden" name="texto" value="@texto"/>
             <input type="text" name="size" value="@size"/>
             <input type="hidden" name="id" value="@id"/>
             <input type="submit" id="qrButton" class="btn btn-primary" value="Mudar Tamanho"/>
         </form>
-    </div>
-    <div class="row">
-        @texto
-    </div>
-    <hr/>
-    <div class="row">
-        <div id="qr"></div>
-        <script>
-        $('#qr').qrcode({
-            width: @size,
-            height: @size,
-            text: '@texto'});
-        </script>
     </div>
     <div class="row">
         @zipado

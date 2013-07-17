@@ -5,7 +5,7 @@
 # ROTAS DO SERVIDOR, DISPONIVEIS NA APLICACAO WEB, ACESSIVEIS APEANS PARA USUARIO ADMIN
 GET     /                           controllers.Application.index
 GET     /qrcode/form                controllers.QRCodes.formQRCode
-GET     /qrcode/render/:texto       controllers.QRCodes.renderQRCode(texto: String, size:Int ?= 480)
+GET     /qrcode/render/             controllers.QRCodes.renderQRCode(size:Int ?= 480)
 POST    /qrcode/render              controllers.QRCodes.renderQRCodePost
 GET     /qrcode/json/:id            controllers.QRCodes.renderQRCodeJSON(id: Long)
 POST    /qrcode/gerar               controllers.QRCodes.gerarQRCode

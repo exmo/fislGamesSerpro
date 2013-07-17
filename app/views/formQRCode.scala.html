@@ -2,7 +2,7 @@
 
 @import helper._
 
-@geraTextoQrcode(q:QRCode) = {SERPRO#@q.tipo#@q.id#@q.textoQrCode}
+@geraTextoQrcode(q:QRCode) = {SERPRO#@q.tipo#@q.id}
 <script>
     function gerarQRCode() {
     }
@@ -21,9 +21,7 @@
             @footable_header(title = "Texto", sort = true)
             @footable_header(title = "Tipo", sort = true)
             @footable_header(title = "Resposta", hideDevices = "phone")
-            @footable_header(title = "Alternativa 1", hideDevices = "phone,tablet")
-            @footable_header(title = "Alternativa 2", hideDevices = "phone,tablet")
-            @footable_header(title = "Alternativa 3", hideDevices = "phone,tablet")
+            @footable_header(title = "Alternativas", hideDevices = "phone,tablet")
             @footable_header(title = "Pontuação", hideDevices = "phone", sort = true)
             @footable_header(title = "QR-Code")
             @footable_header(title = "Ações")
@@ -37,9 +35,7 @@
                 <td>@q.texto</td>
                 <td>@q.tipo</td>
                 <td data-hide="phone,tablet">@q.resposta</td>
-                <td data-hide="phone,tablet">@q.alternativa1</td>
-                <td data-hide="phone,tablet">@q.alternativa2</td>
-                <td data-hide="phone,tablet">@q.alternativa3</td>
+                <td data-hide="phone,tablet">@q.alternativas</td>
                 <td>@q.pontuacao</td>
                 <td>
                     <form name="qrForm@q.id.get" action="/qrcode/render" method="post">
@@ -73,8 +69,8 @@
 
     @form(routes.QRCodes.gerarQRCode, 'class -> "form-horizontal") {
         <fieldset>
-            <legend><strong>Incluir QR-Code</strong></legend>
-                    
+                <legend><strong>Incluir QR-Code</strong></legend>
+
                 @qrcodeForm.globalError.map { error =>
                 <div class="alert alert-error">
                     @error.message
@@ -85,8 +81,8 @@
                 <div class="alert alert-success">
                     @message
                 </div>
-                }            
-                
+                }
+
                 @textarea(qrcodeForm("texto"), '_label -> "Texto")
                 @select(qrcodeForm("tipo"),
                 options("INFO"->"Info","URL"->"URL","DESAFIO"->"Desafio","DESAFIOME"->"Desafio Multipla Escolha"),
@@ -96,37 +92,64 @@
                     @textarea(qrcodeForm("resposta"), '_label -> "Resposta")
                 </div>
                 <div id="desafioMultiplaEscolha">
-                    <input type="hidden" id="random" name="random" value="0"/>
-                    @textarea(qrcodeForm("alternativa1"), '_label -> "Alternativa 1")
-                    @textarea(qrcodeForm("alternativa2"), '_label -> "Alternativa 2")
-                    @textarea(qrcodeForm("alternativa3"), '_label -> "Alternativa 3")
+                    <input type="hidden" id="alternativas" name="alternativas" value=""/>
+                    @textarea(qrcodeForm("alternativa"), '_label -> "Alternativa")
+                    <div id="divAlternativas">
+
+                    </div>
                 </div>
-                <div id="pontuacao">
+                <div id="divPontuacao">
                     @inputText(qrcodeForm("pontuacao"), '_label -> "Pontuação")
                 </div>
 
                 <script>
+                    $("#alternativa").parent().children('span').html('<input id="botaoAdicionaAlternativa" type="button" value="+" class="btn btn-primary" onclick="incluirAlternativa();">');
+                    var cont = 1;
+
                     function verificaTipo(){
                        if($('#tipo').val() == "DESAFIO"){
                            $('#desafio').show();
-                           $('#pontuacao').show();
+                           $('#divPontuacao').show();
                            $('#desafioMultiplaEscolha').hide();
+                           $('#alternativas').val("");
+                           $('#alternativa').val("");
+                           $('#divAlternativas').empty();
                        }else{
                            if($('#tipo').val() == "DESAFIOME"){
                                $('#desafio').show();
                                $('#desafioMultiplaEscolha').show();
-                               $('#pontuacao').show();
+                               $('#divPontuacao').show();
                            }else{
                                $('#desafio').hide();
-                               $('#pontuacao').hide();
+                               $('#divPontuacao').hide();
                                $('#desafioMultiplaEscolha').hide();
+                               $('#alternativas').val("");
+                               $('#alternativa').val("");
+                               $('#pontuacao').val("");
+                               $('#resposta').val("");
+                               $('#divAlternativas').empty();
                            }
                        }
                     }
-                    $('#desafio').hide();
-                    $('#pontuacao').hide();
-                    $('#desafioMultiplaEscolha').hide();
 
+                    function incluirAlternativa(){
+                        if($('#alternativa').val() != ""){
+                            $('<div>').attr('id','divControlGroup'+cont).attr('class','control-group').appendTo('#divAlternativas');
+                            $('<label>').attr('class','control-label').attr('for','alternativa'+cont).html('Alternativa '+cont).appendTo('#divControlGroup'+cont);
+                            $('<div>').attr('class','controls').attr('id','divControls'+cont).appendTo('#divControlGroup'+cont);
+                            $('<textarea>').attr('disabled','true').attr('id','alternativa'+cont).html($('#alternativa').val()).appendTo('#divControls'+cont);
+                            $('<span>').attr('class','help-inline').appendTo('#divControls'+cont);
+                            $('#alternativas').val($('#alternativas').val()+'#'+$('#alternativa').val());
+                            $('#alternativa').val("");
+                            cont = cont +1;
+                        }else{
+                            alert("Você precisa informar um texto para a alternativa!");
+                        }
+                    }
+
+                    $('#desafio').hide();
+                    $('#divPontuacao').hide();
+                    $('#desafioMultiplaEscolha').hide();
                 </script>
 
 
@@ -134,7 +157,6 @@
                 <div class="form-actions">
                     <input type="submit" value="Incluir" class="btn btn-primary">
                 </div>
-            </legend>
         </fieldset>
     }
 }

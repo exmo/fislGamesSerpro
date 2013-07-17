@@ -24,10 +24,7 @@ CREATE TABLE qrcode (
     texto TEXT,
     tipo char(255),
     resposta TEXT,
-    alternativa1 TEXT,
-    alternativa2 TEXT,
-    alternativa3 TEXT,
-    textoQrCode TEXT,
+    alternativas TEXT,
     pontuacao INT,
     PRIMARY KEY (id),
     CONSTRAINT fk_qrcode_evento
@@ -36,36 +33,32 @@ CREATE TABLE qrcode (
 );
 
 
-insert into qrcode (evento_id,texto,tipo,resposta,alternativa1,alternativa2,alternativa3,textoQrCode,pontuacao)
+insert into qrcode (evento_id,texto,tipo,resposta,alternativas,textoQrCode,pontuacao)
     values(1,
     "Qual a empresa, vinculada ao Ministério da Fazenda...?",
     "DESAFIO",
-    "Serpro","N/A","N/A","N/A",
-    "SERPRO#DESAFIO#1#Qual a empresa, vinculada ao Ministério da Fazenda...?#5",
+    "Serpro","N/A",
     5);
 
-insert into qrcode (evento_id,texto,tipo,resposta,alternativa1,alternativa2,alternativa3,textoQrCode,pontuacao)
+insert into qrcode (evento_id,texto,tipo,resposta,alternativas,textoQrCode,pontuacao)
     values(1,
     "Qual a empresa, vinculada ao Ministério da Fazenda...?",
     "DESAFIOME",
-    "Serpro","Google","Microsoft","Capelinha",
-    "SERPRO#DESAFIOME#2#Qual a empresa, vinculada ao Ministério da Fazenda...?#Serpro#Google#Microsoft#Capelinha#10",
+    "Serpro","Google",
     10);
 
-insert into qrcode (evento_id,texto,tipo,resposta,alternativa1,alternativa2,alternativa3,textoQrCode,pontuacao)
+insert into qrcode (evento_id,texto,tipo,resposta,alternativas,textoQrCode,pontuacao)
     values(1,
     "O SERPRO Games vai começar! Fique atento às novas orientações!",
     "INFO",
-    "N/A","N/A","N/A","N/A",
-    "SERPRO#INFO#3#O SERPRO Games vai começar! Fique atento às novas orientações!",
+    "N/A","N/A",
     0);
 
-insert into qrcode (evento_id,texto,tipo,resposta,alternativa1,alternativa2,alternativa3,textoQrCode,pontuacao)
+insert into qrcode (evento_id,texto,tipo,resposta,alternativas,textoQrCode,pontuacao)
     values(1,
     "http://www.serpro.gov.br",
     "URL",
-    "N/A","N/A","N/A","N/A",
-    "SERPRO#URL#4#http://www.serpro.gov.br",
+    "N/A","N/A",
     0);
 
 ################################# USUARIO
