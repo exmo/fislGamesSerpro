@@ -59,7 +59,12 @@ object QRCodes extends Controller with Secured {
     qrcodeForm.bindFromRequest.fold(
         errors => BadRequest(views.html.formQRCode(QRCode.all(),errors)),
         qrcode => {
-          QRCode.create(qrcode.evento_id,qrcode.texto, qrcode.tipo, qrcode.resposta,qrcode.alternativa1,qrcode.alternativa2,qrcode.alternativa3,qrcode.pontuacao)
+          val id = request.body.asFormUrlEncoded.get("id")(0).toInt
+          if(id != 0) {
+            QRCode.update(id,qrcode.evento_id,qrcode.texto, qrcode.tipo, qrcode.resposta,qrcode.alternativa1,qrcode.alternativa2,qrcode.alternativa3,qrcode.pontuacao)
+          } else {
+            QRCode.create(qrcode.evento_id,qrcode.texto, qrcode.tipo, qrcode.resposta,qrcode.alternativa1,qrcode.alternativa2,qrcode.alternativa3,qrcode.pontuacao)
+          }
           Redirect(routes.QRCodes.formQRCode)
         }
       )

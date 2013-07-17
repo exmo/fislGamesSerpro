@@ -106,6 +106,24 @@ object QRCode {
     }
   }
 
+ def update(id:Int, evento_id: Int, texto: String, tipo: String, resposta:String, alternativa1:String, alternativa2:String, alternativa3:String, pontuacao:Int): Long = {
+    val textoQrCode = criaTextoQrCode(texto,tipo,resposta,alternativa1,alternativa2,alternativa3,pontuacao);
+    DB.withConnection { implicit c =>
+      SQL("update qrcode set evento_id={evento_id},texto = {texto},tipo = {tipo}, resposta = {resposta}, alternativa1 = {alternativa1}, alternativa2 = {alternativa2}, alternativa3 = {alternativa3}, textoQrCode = {textoQrCode}, pontuacao = {pontuacao} where id = {id}").on(
+        'id -> id,
+        'evento_id -> evento_id,
+        'texto -> texto,
+        'tipo -> tipo,
+        'resposta -> resposta,
+        'alternativa1 -> alternativa1,
+        'alternativa2 -> alternativa2,
+        'alternativa3 -> alternativa3,
+        'textoQrCode -> textoQrCode,
+        'pontuacao -> pontuacao
+      ).executeUpdate()
+    }
+  }
+
   def delete(id: Long): Long = {
     DB.withConnection { implicit c =>
       return SQL("delete from qrcode where id = {id}").on('id -> id).executeUpdate()
