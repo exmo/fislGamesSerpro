@@ -194,9 +194,11 @@
                           $('<label>').attr('class','control-label').attr('for','alternativa'+i).html('Alternativa '+i).appendTo('#divControlGroup'+i);
                           $('<div>').attr('class','controls').attr('id','divControls'+i).appendTo('#divControlGroup'+i);
                           $('<textarea>').attr('id','alternativa'+i).html(valor).appendTo('#divControls'+i);
-                          $('<span>').html('').attr('class','help-inline').appendTo('#divControls'+i);
+                          $('<span>').attr('class','help-inline').appendTo('#divControls'+i);
                           $('<span>').attr('id','spanBotaoDivControls'+i).attr('class','help-inline').appendTo('#divControls'+i);
-                          $('<input>').attr('id','botaoRemoverAlternativa'+i).attr('type','button').attr('value','-').attr('class','btn btn-primary').attr('onclick','removerAlternativa('+i+');').appendTo('#spanBotaoDivControls'+i);
+                          $('<span>').attr('id','spanRadio'+i).attr('class','help-inline').appendTo('#divControls'+i);
+                          $('<input>').css('background','red').attr('id','botaoRemoverAlternativa'+i).attr('type','button').attr('value','-').attr('class','btn btn-primary').attr('onclick','removerAlternativa('+i+');').appendTo('#spanBotaoDivControls'+i);
+                          $('<input>').attr('id','radio'+i).attr('type','radio').attr('name','radioAlternativa').attr('value',valor).appendTo('#spanRadio'+i);
                     }
 
 
@@ -240,6 +242,12 @@
                                 }else{
                                     msg = msg + "\n\n" + "Além disso, é preciso ter pelo menos duas alternativas!"
                                 }
+                            }
+                            if($('input:checked')[0] == null){
+                                msg = msg + "\n\n" + "É preciso selecionar uma alternativa como sendo a resposta correta";
+                                retorno = false;
+                            }else{
+                                $('#resposta').val($('input:checked')[0].value);
                             }
                         }
                         return retorno;
