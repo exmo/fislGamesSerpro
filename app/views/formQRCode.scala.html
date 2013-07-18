@@ -57,7 +57,7 @@
                     }
                     <script>
                         function atualizar@q.id () {
-                            $('#texto').val('@q.texto');
+                            $('#textoDesafio').val('@q.texto');
                             $('#tipo').val('@q.tipo');
                             $('#resposta').val('@q.resposta');
                             $('#pontuacao').val('@q.pontuacao');
@@ -84,7 +84,7 @@
         </tbody>
     </table>
 
-    @form(routes.QRCodes.gerarQRCode, 'class -> "form-horizontal") {
+    @form(routes.QRCodes.gerarQRCode, 'class -> "form-horizontal", 'id -> "formSalvarDados") {
         <fieldset>
 
             <legend><strong>Incluir QR-Code</strong></legend>
@@ -104,7 +104,7 @@
                 </div>
                 }
 
-                @textarea(qrcodeForm("texto"), '_label -> "Texto")
+                @textarea(qrcodeForm("texto"), '_label -> "Texto", 'id -> "textoDesafio")
                 @select(qrcodeForm("tipo"),
                 options("INFO"->"Info","URL"->"URL","DESAFIO"->"Desafio","DESAFIOME"->"Desafio Multipla Escolha"),
                 '_label -> "Tipo", '_id->"tipo", 'onchange->"verificaTipo()")
@@ -127,6 +127,7 @@
                 <script>
                     $("#alternativa").parent().children('span').html('<input id="botaoAdicionaAlternativa" type="button" value="+" class="btn btn-primary" onclick="incluirAlternativa();">');
                     var cont = 1;
+                    var msg = "";
 
                     function verificaTipo(){
                        if($('#tipo').val() == "DESAFIO"){
@@ -142,6 +143,8 @@
                                $('#desafio').show();
                                $('#desafioMultiplaEscolha').show();
                                $('#div_pontuacao').show();
+                               $('#desafio').hide();
+                               $('#resposta').val("");
                            }else{
                                $('#desafio').hide();
                                $('#desafioMultiplaEscolha').hide();
@@ -159,30 +162,105 @@
                         if($('#tipo').val() == "DESAFIOME"){
                             $('#divAlternativas').empty();
                             var alternatives =  $('#alternativas').val().split('#');
-                            for(i = 1;i < alternatives.length; i++){
+                            for(i = 0;i < alternatives.length; i++){
                                 incluiAlternativaNaDivAlternativas(i,alternatives[i]);
                             }
-                            console.log(alternatives);
+                            cont = i;
+                            $('#alternativas').val("");
                         }
                     }
 
                     function incluirAlternativa(){
                         if($('#alternativa').val() != ""){
-                            incluiAlternativaNaDivAlternativas(cont,$('#alternativa').val());
-                            $('#alternativas').val($('#alternativas').val()+'#'+$('#alternativa').val());
-                            $('#alternativa').val("");
-                            cont = cont +1;
+                            var arrayAlternativa =  $('#alternativa').val().split('#');
+                            if(arrayAlternativa.length == 1){
+                                incluiAlternativaNaDivAlternativas(cont,$('#alternativa').val());
+                                $('#alternativa').val("");
+                                cont = cont +1;
+                            }else{
+                                alert("O campo alternativa não pode conter a String # !");
+                            }
                         }else{
                             alert("Você precisa informar um texto para a alternativa!");
                         }
+                    }
+
+                    function removerAlternativa(i){
+                        $('#divControlGroup'+i).remove();
                     }
 
                     function incluiAlternativaNaDivAlternativas(i,valor){
                           $('<div>').attr('id','divControlGroup'+i).attr('class','control-group').appendTo('#divAlternativas');
                           $('<label>').attr('class','control-label').attr('for','alternativa'+i).html('Alternativa '+i).appendTo('#divControlGroup'+i);
                           $('<div>').attr('class','controls').attr('id','divControls'+i).appendTo('#divControlGroup'+i);
-                          $('<textarea>').attr('disabled','true').attr('id','alternativa'+i).html(valor).appendTo('#divControls'+i);
-                          $('<span>').attr('class','help-inline').appendTo('#divControls'+i);
+                          $('<textarea>').attr('id','alternativa'+i).html(valor).appendTo('#divControls'+i);
+                          $('<span>').html('').attr('class','help-inline').appendTo('#divControls'+i);
+                          $('<span>').attr('id','spanBotaoDivControls'+i).attr('class','help-inline').appendTo('#divControls'+i);
+                          $('<input>').attr('id','botaoRemoverAlternativa'+i).attr('type','button').attr('value','-').attr('class','btn btn-primary').attr('onclick','removerAlternativa('+i+');').appendTo('#spanBotaoDivControls'+i);
+                    }
+
+
+                    function salvarDados(){
+                        if($('#tipo').val() == "DESAFIOME"){
+                            gravaAlternativasNaVariavel();
+                        }
+                        if(validaCampos()){
+                            $('#formSalvarDados').submit();
+                        }else{
+                            alert(msg);
+                        }
+                    }
+
+                    function validaCampos(){
+                        var retorno = true;
+                        msg = "Os seguintes campos precisam ser preenchidos:";
+                        if($('#textoDesafio').val() == ""){
+                            msg = msg + "\n\n" + "Texto";
+                            retorno = false;
+                        }
+                        if($('#tipo').val() == "DESAFIO"){
+                            if($('#resposta').val() == ""){
+                                msg = msg + "\n" + "Resposta";
+                                retorno = false;
+                            }
+                            if($('#pontuacao').val() == ""){
+                                msg = msg + "\n" + "Pontuação";
+                                retorno = false;
+                            }
+                        }
+                        if($('#tipo').val() == "DESAFIOME"){
+                            if($('#pontuacao').val() == ""){
+                                msg = msg + "\n" + "Pontuação";
+                                retorno = false;
+                            }
+                            var arrayAlternativas = $('#alternativas').val().split('#');
+                            if(arrayAlternativas.length < 2){
+                                if(retorno){
+                                    msg = "É preciso ter pelo menos duas alternativas!";
+                                }else{
+                                    msg = msg + "\n\n" + "Além disso, é preciso ter pelo menos duas alternativas!"
+                                }
+                            }
+                        }
+                        return retorno;
+                    }
+
+                    function gravaAlternativasNaVariavel(){
+                        $('#alternativas').val("");
+                        listaTextArea = $('#divAlternativas textarea');
+                        console.log(listaTextArea);
+                        console.log(listaTextArea.length);
+                        for (i=0; i < listaTextArea.length; i++){
+                            if($('#alternativas').val() == ""){
+                                $('#alternativas').val(listaTextArea[i].value);
+                            }else{
+                                $('#alternativas').val($('#alternativas').val() + '#' + listaTextArea[i].value);
+                            }
+                        }
+                    }
+
+                    function limparCampos(){
+                        alert("ToDo");
                     }
 
                     $('#desafio').hide();
@@ -193,8 +271,8 @@
 
                 <!-- Button -->
                 <div class="form-actions">
-                    <input type="submit" value="Salvar" class="btn btn-primary">
-                    <input type="submit" value="Limpar" class="btn btn-alert">
+                    <input type="button" value="Salvar" class="btn btn-primary" onclick="salvarDados();">
+                    <input type="button" value="Limpar" class="btn btn-alert" onclick="limparCampos();">
                 </div>
         </fieldset>
     }
