@@ -114,7 +114,7 @@
                 </div>
                 <div id="desafioMultiplaEscolha">
                     <input type="hidden" id="alternativas" name="alternativas" value=""/>
-                    @textarea(qrcodeForm("alternativa"), '_label -> "Alternativa")
+                    @textarea(qrcodeForm("alternativa"), '_label -> "Inclua suas alternativas:")
                     <div id="divAlternativas">
 
                     </div>
@@ -163,7 +163,11 @@
                             $('#divAlternativas').empty();
                             var alternatives =  $('#alternativas').val().split('#');
                             for(i = 0;i < alternatives.length; i++){
-                                incluiAlternativaNaDivAlternativas(i,alternatives[i]);
+                                var checked = false;
+                                if(alternatives[i] == $('#resposta').val()){
+                                    checked = true;
+                                }
+                                incluiAlternativaNaDivAlternativas(i,alternatives[i],checked);
                             }
                             cont = i;
                             $('#alternativas').val("");
@@ -174,7 +178,7 @@
                         if($('#alternativa').val() != ""){
                             var arrayAlternativa =  $('#alternativa').val().split('#');
                             if(arrayAlternativa.length == 1){
-                                incluiAlternativaNaDivAlternativas(cont,$('#alternativa').val());
+                                incluiAlternativaNaDivAlternativas(cont,$('#alternativa').val(),false);
                                 $('#alternativa').val("");
                                 cont = cont +1;
                             }else{
@@ -189,7 +193,7 @@
                         $('#divControlGroup'+i).remove();
                     }
 
-                    function incluiAlternativaNaDivAlternativas(i,valor){
+                    function incluiAlternativaNaDivAlternativas(i,valor,checked){
                           $('<div>').attr('id','divControlGroup'+i).attr('class','control-group').appendTo('#divAlternativas');
                           $('<label>').attr('class','control-label').attr('for','alternativa'+i).html('Alternativa '+i).appendTo('#divControlGroup'+i);
                           $('<div>').attr('class','controls').attr('id','divControls'+i).appendTo('#divControlGroup'+i);
@@ -198,7 +202,8 @@
                           $('<span>').attr('id','spanBotaoDivControls'+i).attr('class','help-inline').appendTo('#divControls'+i);
                           $('<span>').attr('id','spanRadio'+i).attr('class','help-inline').appendTo('#divControls'+i);
                           $('<input>').css('background','red').attr('id','botaoRemoverAlternativa'+i).attr('type','button').attr('value','-').attr('class','btn btn-primary').attr('onclick','removerAlternativa('+i+');').appendTo('#spanBotaoDivControls'+i);
-                          $('<input>').attr('id','radio'+i).attr('type','radio').attr('name','radioAlternativa').attr('value',valor).appendTo('#spanRadio'+i);
+                          $('<input>').attr('id','radio'+i).attr('type','radio').attr('name','radioAlternativa').attr('value',valor).attr('checked',checked).appendTo('#spanRadio'+i);
+
                     }
 
 
