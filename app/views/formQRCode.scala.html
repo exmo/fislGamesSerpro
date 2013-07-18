@@ -18,7 +18,6 @@
         <thead>
         <tr>
             @footable_header(title = "#", expand = true)
-            @footable_header(title = "Evento", hideDevices = "phone")
             @footable_header(title = "Texto", sort = true)
             @footable_header(title = "Tipo", sort = true)
             @footable_header(title = "Resposta", hideDevices = "phone")
@@ -32,7 +31,6 @@
         @list.map{ q =>
             <tr>
                 <td data-class="expand">@q.id</td>
-                <td data-hide="phone,tablet">@q.evento_id</td>
                 <td>@q.texto</td>
                 <td>@q.tipo</td>
                 <td data-hide="phone,tablet">@q.resposta</td>
