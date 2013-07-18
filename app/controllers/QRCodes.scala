@@ -86,6 +86,7 @@ object QRCodes extends Controller with Secured {
     )
 
     QRCode.findById(id).map{ q :QRCode =>
+      q.resposta = "N/A"
       json = toJson(q)
     }
 

@@ -33,28 +33,28 @@ CREATE TABLE qrcode (
 );
 
 
-insert into qrcode (evento_id,texto,tipo,resposta,alternativas,textoQrCode,pontuacao)
+insert into qrcode (evento_id,texto,tipo,resposta,alternativas,pontuacao)
     values(1,
     "Qual a empresa, vinculada ao Ministério da Fazenda...?",
     "DESAFIO",
     "Serpro","N/A",
     5);
 
-insert into qrcode (evento_id,texto,tipo,resposta,alternativas,textoQrCode,pontuacao)
+insert into qrcode (evento_id,texto,tipo,resposta,alternativas,pontuacao)
     values(1,
     "Qual a empresa, vinculada ao Ministério da Fazenda...?",
     "DESAFIOME",
-    "Serpro","Google",
+    "Serpro","Google#Microsoft#Serpro",
     10);
 
-insert into qrcode (evento_id,texto,tipo,resposta,alternativas,textoQrCode,pontuacao)
+insert into qrcode (evento_id,texto,tipo,resposta,alternativas,pontuacao)
     values(1,
     "O SERPRO Games vai começar! Fique atento às novas orientações!",
     "INFO",
     "N/A","N/A",
     0);
 
-insert into qrcode (evento_id,texto,tipo,resposta,alternativas,textoQrCode,pontuacao)
+insert into qrcode (evento_id,texto,tipo,resposta,alternativas,pontuacao)
     values(1,
     "http://www.serpro.gov.br",
     "URL",
@@ -85,7 +85,7 @@ CREATE TABLE resposta (
 
 # --- !Downs
 
-DROP TABLE resposta;
+DROP TABLE if Exists resposta;
 DROP TABLE usuario;
 DROP TABLE qrcode;
 DROP TABLE evento;
