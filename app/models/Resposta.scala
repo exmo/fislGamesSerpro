@@ -92,6 +92,8 @@ object Resposta {
 
   }
 
+
+
   def obtemRespostasUsuario(email: String): List[Seq[Any]] = DB.withConnection { implicit c =>
     SQL("select r.idQrCode, q.texto, r.email, q.resposta, r.resposta, r.pontuacao, r.ultima_atualizacao from resposta  r " +
       "inner join qrcode q on q.id = r.idQrCode where r.email={email}").on('email -> email).as(resps *)
@@ -100,6 +102,10 @@ object Resposta {
   def obtemPontuacaoUsuario(email: String) = DB.withConnection { implicit c =>
     SQL("select coalesce(sum(pontuacao),0) as pontuacao from resposta where email = {email}").on('email -> email).as(scalar[BigDecimal].single)
 
+  }
+
+  def obtemProgresso(email: String)  = DB.withConnection { implicit c =>
+    SQL("select FORMAT(FLOOR((temp1.x / temp2.y)*100),0) from (select count(*) as x from resposta where email={email}) as temp1, (select count(*) as y from qrcode where tipo like 'DESAFIO%') as temp2").on('email -> email).as(scalar[String].single)
   }
 
 

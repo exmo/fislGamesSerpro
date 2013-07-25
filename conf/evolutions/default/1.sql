@@ -1,8 +1,7 @@
 # --- !Ups
 
-
 ######################### EVENTO
-CREATE TABLE evento (
+CREATE TABLE IF NOT EXISTS evento (
     id INT NOT NULL AUTO_INCREMENT,
     nome TEXT,
     descricao TEXT,
@@ -18,7 +17,7 @@ insert into evento (nome,descricao)
 
 
 ######################### QRCODE
-CREATE TABLE qrcode (
+CREATE TABLE IF NOT EXISTS qrcode (
     id INT NOT NULL AUTO_INCREMENT,
     evento_id integer NOT NULL,
     texto TEXT,
@@ -62,7 +61,7 @@ insert into qrcode (evento_id,texto,tipo,resposta,alternativas,pontuacao)
     0);
 
 ################################# USUARIO
-CREATE TABLE usuario (
+CREATE TABLE IF NOT EXISTS usuario (
     email char(255) NOT NULL PRIMARY KEY,
     nome char(255),
     telefone char(30)
@@ -70,7 +69,7 @@ CREATE TABLE usuario (
 
 
 ################################# RESPOSTA
-CREATE TABLE resposta (
+CREATE TABLE IF NOT EXISTS resposta (
     idQrCode integer NOT NULL,
     email char(255) NOT NULL,
     resposta char(255),
@@ -85,7 +84,7 @@ CREATE TABLE resposta (
 
 # --- !Downs
 
-DROP TABLE if Exists resposta;
-DROP TABLE usuario;
-DROP TABLE qrcode;
-DROP TABLE evento;
+DROP TABLE IF EXISTS resposta;
+DROP TABLE IF EXISTS usuario;
+DROP TABLE IF EXISTS qrcode;
+DROP TABLE IF EXISTS evento;

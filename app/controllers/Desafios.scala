@@ -6,6 +6,8 @@ import play.api.libs.Jsonp
 
 
 import play.api.libs.json.Json._
+import scala.collection.generic.SeqFactory
+import play.api.libs.json.JsValue
 
 
 object Desafios extends Controller with Secured {
@@ -33,6 +35,46 @@ object Desafios extends Controller with Secured {
       respostaCorreta = qrcode.resposta
     }
     Ok(views.html.todasrespostas(Resposta.obtemTodasRespostas(id),id,pergunta,respostaCorreta))
+  }
+
+  def rankingJson(email: String, callback: String) = Action {
+    var json = toJson(
+      Map("status" -> "OK", "codRet" -> "ERRO-RE", "msgRet" -> "Resposta errada!")
+    )
+
+    var lista: List[Seq[Any]] = models.Resposta.obtemPontuacaoTodosUsuarios();
+    var usuario: Map[String,String] = null;
+
+    var posicao: Int = 0;
+    lista.map{ case(Seq(e,n,t,p)) => {
+       posicao+=1;
+       if(e == email){
+         usuario = Map("email" -> e.toString,
+           "nome" -> n.toString,
+           "telefone" -> t.toString,
+           "pontos" -> p.toString,
+          "posicao" -> posicao.toString,
+         "progresso" -> models.Resposta.obtemProgresso(email).toString
+         )
+       }
+      }
+    }
+
+    var primeiros : List[JsValue] = lista.slice(0,5).map{
+      case(Seq(e,n,t,p)) => toJson(
+      Map("email" -> e.toString, "nome" -> n.toString,
+        "telefone" -> t.toString, "pontos" -> p.toString)
+      )
+    }
+
+    json = toJson(
+      Map("status" -> toJson("OK"),
+          "ranking" -> toJson(primeiros),
+          "usuario" -> toJson(usuario)
+      )
+    )
+
+    Ok(Jsonp(callback, json))
   }
 
   def responder(id: Long, email: String, resposta: String, callback: String) = Action {

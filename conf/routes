@@ -19,6 +19,8 @@ GET     /respostacorreta/:id/:email controllers.Desafios.considerarRespostaCorre
 GET     /usuario/criar/:email/:nome/:telefone   controllers.Users.criarUsuario(email: String, nome: String, telefone: String, callback: String)
 GET     /desafio/:id/:email/:resposta           controllers.Desafios.responder(id: Long, email: String, resposta: String, callback: String)
 GET     /qrcode/json/:id                        controllers.QRCodes.renderQRCodeJSON(id: Long, callback: String)
+GET     /ranking/json/:email                    controllers.Desafios.rankingJson(email: String, callback: String)
+
 
 # Authentication
 GET     /login                      controllers.Login.login
