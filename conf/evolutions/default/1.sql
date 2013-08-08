@@ -101,7 +101,7 @@ CREATE TABLE participacao_palestra (
     email char(255) NOT NULL,
     tipo char(1), #(I)n (O)ut
     data_hora char(16),
-    PRIMARY KEY (idPalestra,email),
+    PRIMARY KEY (idPalestra,email,tipo),
     FOREIGN KEY (idPalestra) REFERENCES palestra(id),
     FOREIGN KEY (email) REFERENCES usuario(email)
 );

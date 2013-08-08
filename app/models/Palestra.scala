@@ -4,6 +4,9 @@ import anorm._
 import anorm.SqlParser._
 import play.api.db.DB
 import play.api.Play.current
+import java.text.SimpleDateFormat
+import java.util.TimeZone
+import java.util.Date
 
 case class Palestra (
     val id: Pk[Long] = NotAssigned,
@@ -56,11 +59,32 @@ object Palestra {
     }
   }
 
+  def findById(id: Long): Option[Palestra] = DB.withConnection { implicit c =>
+    SQL("select * from palestra where id = {id}").on('id -> id).as(Palestra.palestra.singleOpt)
+  }
+
   def delete(id: Long): Long = {
     DB.withConnection { implicit c =>
       return SQL("delete from palestra where id = {id}").on('id -> id).executeUpdate()
     }
   }
 
+  def registrarParticipacao(idPalestra:Long, email: String, tipo: String) {
+    var sdfDate = new SimpleDateFormat("dd/MM/yyyy kk:mm")
+    sdfDate.setTimeZone(TimeZone.getTimeZone("GMT-3"))
+
+    val data_hora = sdfDate.format(new Date()) // "08/08/2013 16:57"
+    DB.withConnection { implicit c =>
+      SQL("insert into participacao_palestra (idPalestra, email, data_hora, tipo) values ({idPalestra},{email},{data_hora},{tipo})").on(
+        'idPalestra -> idPalestra,
+        'email -> email,
+        'data_hora -> data_hora,
+        'tipo -> tipo
+      ).executeInsert()
+    } match {
+      case Some(insertedId) => return insertedId
+      case None  => return -1
+    }
+  }
 }
 

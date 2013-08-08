@@ -23,13 +23,14 @@ GET     /qrcode/json/:id                        controllers.QRCodes.renderQRCode
 GET     /ranking/json/:email                    controllers.Desafios.rankingJson(email: String, callback: String)
 
 POST    /palestra/:id/excluir       controllers.Palestras.excluir(id: Long)
-GET     /palestra/listar            controllers.Palestras.listar()
+GET     /palestra/listar            controllers.Palestras.listar
 POST    /palestra/cadastrar         controllers.Palestras.cadastrar()
 
-#GET     /palestra/:palestraid/checkin/:idusuario
-#GET     /palestra/:palestraid/checkout/:idusuario
-#GET     /palestra/:palestraid
-#GET     /palestras/:eventoid          {id,descricao,data,palestrante}**/
+GET     /palestra/:palestraid/checkin/:email controllers.Palestras.registrarParticipacao(palestraid: Long, email: String, inOut: String ?= "I")
+GET     /palestra/:palestraid/checkout/:email controllers.Palestras.registrarParticipacao(palestraid: Long, email: String, inOut: String ?= "O")
+GET     /palestras                  controllers.Palestras.listarAsJson
+#GET    /palestra/:palestraid
+
 
 # Authentication
 GET     /login                      controllers.Login.login
