@@ -81,6 +81,30 @@ CREATE TABLE IF NOT EXISTS resposta (
 );
 
 
+################################# PALESTRA
+CREATE TABLE palestra (
+    id integer NOT NULL AUTO_INCREMENT,
+    descricao char(255) NOT NULL,
+    data char(16),
+    palestrante char(50) NOT NULL,
+    evento_id integer,
+    PRIMARY KEY (id),
+    CONSTRAINT fk_palestra_evento,
+    FOREIGN KEY (evento_id) REFERENCES evento(id)
+        ON DELETE NO ACTION ON UPDATE NO ACTION
+);
+
+
+################################# REGISTRO DE UM USUARIO EM UMA PALESTRA
+CREATE TABLE participacao_palestra (
+    idPalestra integer NOT NULL,
+    email char(255) NOT NULL,
+    tipo char(1), #(I)n (O)ut
+    data_hora char(16),
+    PRIMARY KEY (idPalestra,email),
+    FOREIGN KEY (idPalestra) REFERENCES palestra(id),
+    FOREIGN KEY (email) REFERENCES usuario(email)
+);
 
 # --- !Downs
 
@@ -88,3 +112,5 @@ DROP TABLE IF EXISTS resposta;
 DROP TABLE IF EXISTS usuario;
 DROP TABLE IF EXISTS qrcode;
 DROP TABLE IF EXISTS evento;
+DROP TABLE IF EXISTS palestra;
+DROP TABLE IF EXISTS participacao_palestra;

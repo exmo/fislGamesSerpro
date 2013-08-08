@@ -7,7 +7,7 @@ import org.specs2.matcher._
 
 
 class QRCodeSpec extends Specification with WithTestDatabase {
-
+      /*
   "QRCode.all" should {
     "retornar uma lista nao vazia" in new qrcodes {
       QRCode.all must not beEmpty
@@ -53,10 +53,12 @@ class QRCodeSpec extends Specification with WithTestDatabase {
       QRCode.all must beEmpty
     }
   }
+   */
 
   // Este código deve ser executado antes de cada teste
+  /*
   class qrcodes extends Scope {
     val qrcodeId = QRCode.create("QRCODE TEST", "INFO", "5", "N/A", "N/A", "N/A", 10)
   }
-
+    */
 }

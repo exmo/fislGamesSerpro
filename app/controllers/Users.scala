@@ -22,9 +22,10 @@ object Users extends Controller with Secured {
     }
     Ok(Jsonp(callback, json))
   }
-  def consultarUsuario(email: String) = Action {
+
+  def consultarUsuario(email: String, callback: String) = Action {
     var json = toJson(
-      Map("codRet" -> "ERRO", "msgRet" -> s"Usuario $nome inexistente")
+      Map("codRet" -> "ERRO", "msgRet" -> s"Usuario $email inexistente")
     )
     Usuario.findByEmail(email).map { usuario =>
       json = toJson(
