@@ -30,9 +30,24 @@ object Palestra {
     SQL("select * from palestra").as(palestra *)
   }
 
-  def create(descricao: String, data: String, palestrante: String, evento_id: Int) {
+  def create(descricao: String, data: String, palestrante: String, evento_id: Int): Long = {
     DB.withConnection { implicit c =>
       SQL("insert into palestra (descricao, data, palestrante, evento_id) values ({descricao},{data},{palestrante},{evento_id})").on(
+        'descricao -> descricao,
+        'data -> data,
+        'palestrante -> palestrante,
+        'evento_id -> evento_id
+      ).executeInsert()
+    } match {
+      case Some(insertedId) => return insertedId
+      case None  => return -1
+    }
+  }
+
+  def update(id:Int, descricao: String, data: String, palestrante: String, evento_id: Int) {
+    DB.withConnection { implicit c =>
+      SQL("update palestra set descricao = {descricao}, data = {data}, palestrante = {palestrante}, evento_id = {evento_id} where id = {id}").on(
+        'id -> id,
         'descricao -> descricao,
         'data -> data,
         'palestrante -> palestrante,
@@ -41,7 +56,7 @@ object Palestra {
     }
   }
 
-  def delete(id: Int): Long = {
+  def delete(id: Long): Long = {
     DB.withConnection { implicit c =>
       return SQL("delete from palestra where id = {id}").on('id -> id).executeUpdate()
     }

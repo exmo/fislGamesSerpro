@@ -1,0 +1,115 @@
+@(list: List[Palestra],palestraForm: Form[Palestra])(implicit flash: Flash)
+
+@import helper._
+
+@implicitFieldConstructor = @{ FieldConstructor(twitterBootstrapInput.f) }
+
+@main("Palestras") {
+    <h1>@list.size Palestra(s)</h1>
+    <table class="table table-striped table-bordered footable">
+        <thead>
+        <tr>
+            @footable_header(title = "#", expand = true)
+            @footable_header(title = "Palestra", sort = true)
+            @footable_header(title = "Data", sort = true)
+            @footable_header(title = "Palestrante", hideDevices = "phone")
+            @footable_header(title = "Ações")
+        </tr>
+        </thead>
+        <tbody>
+        @list.map{ p =>
+            <tr>
+                <td data-class="expand">@p.id</td>
+                <td>@p.descricao</td>
+                <td data-hide="phone,tablet">@p.data</td>
+                <td data-hide="phone,tablet">@p.palestrante</td>
+                <td>
+                    @form(routes.Palestras.excluir(p.id.get)) {
+                    <input type="submit" value="  Excluir  " class="btn btn-danger" onclick="return confirm('Tem certeza?');" />
+                    }
+
+                    <script>
+                        function atualizar@p.id () {
+                            $('#action').text('Atualizar Palestra');
+                            $('#id').val('@p.id');
+                            $('#descricao').val('@p.descricao');
+                            $('#data').val('@p.data');
+                            $('#palestrante').val('@p.palestrante');
+                        }
+                    </script>
+                    <p>
+                        <a href="javascript:atualizar@p.id ()" class="btn btn-info" />  Atualizar  </a>
+                    </p>
+                </td>
+            </tr>
+        }
+        </tbody>
+    </table>
+
+    @form(routes.Palestras.cadastrar, 'class -> "form-horizontal", 'id -> "formSalvarDados") {
+        <fieldset>
+
+            <legend><strong><span id="action">Incluir Palestra</span></strong></legend>
+
+                <input type="hidden" id="id" name="id" value='0'/>
+                <input type="hidden" id="event_id" name="event_id" value='1'/>
+
+                @palestraForm.globalError.map { error =>
+                <div class="alert alert-error">
+                    @error.message
+                </div>
+                }
+
+                @flash.get("success").map { message =>
+                <div class="alert alert-success">
+                    @message
+                </div>
+                }
+
+                <div id="divDescricao">
+                    @textarea(palestraForm("descricao"), '_label -> "Palestra")
+                </div>
+                <div id="divData">
+                    @inputText(palestraForm("data"), '_label -> "Data", '_value -> "")
+                </div>
+                <div id="divPalestrante">
+                    @inputText(palestraForm("palestrante"), '_label -> "Palestrante", '_value -> "")
+                </div>
+
+                <script>
+                    function salvarDados(){
+                        if(validaCampos()){
+                            $('#formSalvarDados').submit();
+                        }else{
+                            alert(msg);
+                        }
+                    }
+
+                    function validaCampos(){
+                        var retorno = true;
+                        msg = "Os seguintes campos precisam ser preenchidos:";
+                        if($('#textoDesafio').val() == ""){
+                            msg = msg + "\n\n" + "Texto";
+                            retorno = false;
+                        }
+                        return retorno;
+                    }
+
+                    function limparCampos(){
+                        $('#action').text('Incluir Palestra');
+                        $('#id').val('0');
+                        $('#descricao').val('');
+                        $('#data').val('');
+                        $('#palestrante').val('');
+                    }
+                </script>
+
+
+                <!-- Button -->
+                <div class="form-actions">
+                    <input type="button" value="Salvar" class="btn btn-primary" onclick="salvarDados();">
+                    <input type="button" value="Limpar" class="btn btn-alert" onclick="limparCampos();">
+                </div>
+        </fieldset>
+    }
+}

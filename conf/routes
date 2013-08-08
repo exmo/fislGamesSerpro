@@ -22,6 +22,10 @@ GET     /desafio/:id/:email/:resposta           controllers.Desafios.responder(i
 GET     /qrcode/json/:id                        controllers.QRCodes.renderQRCodeJSON(id: Long, callback: String)
 GET     /ranking/json/:email                    controllers.Desafios.rankingJson(email: String, callback: String)
 
+POST    /palestra/:id/excluir       controllers.Palestras.excluir(id: Long)
+GET     /palestra/listar            controllers.Palestras.listar()
+POST    /palestra/cadastrar         controllers.Palestras.cadastrar()
+
 #GET     /palestra/:palestraid/checkin/:idusuario
 #GET     /palestra/:palestraid/checkout/:idusuario
 #GET     /palestra/:palestraid
