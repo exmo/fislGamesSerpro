@@ -48,6 +48,17 @@ object Resposta {
       case idQrCode~texto~email~resposta_correta~resposta~pontuacao~ultima_atualizacao => Seq(idQrCode,texto,email,resposta_correta,resposta,pontuacao,formataDataHora(ultima_atualizacao))
     }
   }
+
+  val respsCompletas = {
+        get[Pk[Long]]("qrcode.id")~
+        get[String]("qrcode.texto")~
+        get[String]("qrcode.tipo")~
+        get[Long]("qrcode.pontuacao")~
+        get[String]("qrcode.alternativas")~
+        get[Long]("resposta.pontuacao") map {
+            case id~texto~tipo~pontos~alternativas~pontuacao => Seq(id,texto,tipo,pontos,alternativas,pontuacao)
+        }
+    }
   
   def formataDataHora(dataHora: String): String = {
     var dt = new DateTime(dataHora)
@@ -92,7 +103,10 @@ object Resposta {
 
   }
 
-
+  def obtemRespostasCompletasUsuario(email: String): List[Seq[Any]] = DB.withConnection { implicit c =>
+      SQL("select q.id, q.texto, q.tipo, q.pontuacao, q.alternativas, r.pontuacao from resposta  r " +
+        "inner join qrcode q on q.id = r.idQrCode where r.email={email}").on('email -> email).as(respsCompletas *)
+  }
 
   def obtemRespostasUsuario(email: String): List[Seq[Any]] = DB.withConnection { implicit c =>
     SQL("select r.idQrCode, q.texto, r.email, q.resposta, r.resposta, r.pontuacao, r.ultima_atualizacao from resposta  r " +

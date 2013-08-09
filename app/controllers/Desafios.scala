@@ -25,6 +25,36 @@ object Desafios extends Controller with Secured {
     Ok(views.html.resposta(Resposta.obtemRespostasUsuario(email), nomeUsuario, email, pontos))    
   }
 
+  def respostasAsJson(email: String, callback: String) =  Action{
+
+    var json = toJson(
+          Map("status" -> "OK", "codRet" -> "ERRO-RE", "msgRet" -> "Nenhuma resposta para esse usuário")
+        )
+
+    var listaRespostas: List[Seq[Any]] = Resposta.obtemRespostasCompletasUsuario(email)
+
+    if(listaRespostas.length > 0){
+        var lista : List[JsValue] = listaRespostas.map{
+          case(Seq(id,texto,tipo,pontos,alternativas,pontuacao)) => toJson(
+            Map("id" -> id.toString,
+                "texto" -> texto.toString,
+                "tipo" -> tipo.toString,
+                "pontos" -> pontos.toString,
+                "alternativas" -> alternativas.toString,
+                "pontuacao" -> pontuacao.toString
+            )
+          )
+        }
+        json = toJson(
+            Map("status" -> toJson("OK"),
+                "respostas" -> toJson(lista)
+            )
+        )
+    }
+
+    Ok(Jsonp(callback, json))
+  }
+
   def todasRespostas(id: Long) = withAuth { user => implicit request =>
 
     var pergunta = ""
