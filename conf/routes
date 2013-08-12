@@ -17,7 +17,7 @@ GET     /respostacorreta/:id/:email controllers.Desafios.considerarRespostaCorre
 
 # ROTAS DISPONIVEIS PARA ACESSO REST VIA APP PHONEGAP, RETORNANDO JSONP
 GET     /usuario/criar/:email/:nome/:telefone   controllers.Users.criarUsuario(email: String, nome: String, telefone: String, callback: String)
-GET     /usuario/consultar/:email               controllers.Users.consultarUsuario(email: String, callback: String)
+GET     /usuario/consultar/:email               controllers.Users.consultarUsuario(email: String, callback: String ?= "N/A")
 GET     /desafio/:id/:email/:resposta           controllers.Desafios.responder(id: Long, email: String, resposta: String, callback: String)
 GET     /respostasCompletas/:email              controllers.Desafios.respostasAsJson(email: String, callback: String)
 

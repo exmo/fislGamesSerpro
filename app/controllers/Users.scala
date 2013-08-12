@@ -32,6 +32,10 @@ object Users extends Controller with Secured {
         Map("codRet" -> "OK", "msgRet" -> s"Usuario $email encontrado", "nome" -> usuario.nome, "telefone" -> usuario.telefone)
       )
     }
-    Ok(Jsonp(callback, json))
+    if(callback == "N/A"){
+      Ok(json)
+    }else{
+      Ok(Jsonp(callback, json))
+    }
   }  
 }
