@@ -12,8 +12,8 @@ case class Palestra (
     val id: Pk[Long] = NotAssigned,
     val evento_id: Int = 1,
     var descricao: String,
-    var data:String,
-    var palestrante:String
+    var palestrante:String,
+    var data:String
 
 )
 

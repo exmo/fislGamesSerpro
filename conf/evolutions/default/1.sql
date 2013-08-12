@@ -26,7 +26,7 @@ CREATE TABLE IF NOT EXISTS qrcode (
     alternativas TEXT,
     pontuacao INT,
     PRIMARY KEY (id),
-    CONSTRAINT fk_qrcode_evento
+    CONSTRAINT fk_qrcode_evento1
         FOREIGN KEY (evento_id) REFERENCES evento(id)
         ON DELETE NO ACTION ON UPDATE NO ACTION
 );

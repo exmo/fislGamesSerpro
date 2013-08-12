@@ -60,8 +60,9 @@ object Palestras extends Controller with Secured {
       Map(
         "id" -> toJson(p.id.get),
         "descricao" -> toJson(p.descricao),
-        "data" -> toJson(p.data),
-        "palestrante" -> toJson(p.palestrante)
+        "palestrante" -> toJson(p.palestrante),
+        "data" -> toJson(p.data)
+
         )
     }
     val json = toJson(
