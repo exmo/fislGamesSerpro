@@ -1,5 +1,14 @@
 # --- !Ups
 
+CREATE TABLE IF NOT EXISTS `admin` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `email` char(30) NOT NULL,
+  `senha` char(20) NOT NULL,
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `email` (`email`)
+) ;
+
+
 ######################### EVENTO
 CREATE TABLE IF NOT EXISTS evento (
     id INT NOT NULL AUTO_INCREMENT,
@@ -108,6 +117,7 @@ CREATE TABLE participacao_palestra (
 
 # --- !Downs
 
+DROP TABLE IF EXISTS admin;
 DROP TABLE IF EXISTS resposta;
 DROP TABLE IF EXISTS usuario;
 DROP TABLE IF EXISTS qrcode;

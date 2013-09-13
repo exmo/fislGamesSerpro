@@ -32,7 +32,8 @@ object Login extends Controller {
   )
 
   def check(username: String, password: String) = {
-    (username == "admin" && password == "fisl")
+    !models.Admin.autenticate(username,password).isEmpty
+
   }
 
   def login = Action { implicit request =>
