@@ -38,10 +38,10 @@ git pull github master
 
 if [[ "$QUICK" == "-q" ]] || [[ "$QUICK" == "-Q" ]]; then
 	echo "[info] running: play stage"
-	play stage
+	~/Marlon/play-2.1.5/play stage
 else
 	echo "[info] running: play clean compile stage"
-	play clean compile stage
+	~/Marlon/play-2.1.5/play clean compile stage
 fi
 
 echo "[info] running: git add . -A"
